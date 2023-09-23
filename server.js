@@ -26,7 +26,7 @@ let transporter = nodemailer.createTransport({
     secure: false,  // false for TLS
     auth: {
         user: 'robin@snyders.xyz',
-        pass: 'Sth_7849807'  // Use environment variable for password
+        pass: '********'  // Use environment variable for password
     },
     tls: {
         ciphers: 'SSLv3'
