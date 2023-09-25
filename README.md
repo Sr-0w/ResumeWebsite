@@ -1,4 +1,4 @@
-### Resume Website Project 🌟
+# Resume Website Project 🌟
 
 Welcome to the Resume Website Project! This project is designed to professionally showcase your resume, allow visitors to download your resume as a PDF, and send an email notification with each download.
 
@@ -49,7 +49,7 @@ echo "export EMAIL_PASS='$(echo -n 'your app password' | base64)'" >> ~/.bashrc 
 source ~/.bashrc  # or source ~/.bash_profile
 ```
 
-### 🚨 Important Notes 🚨
+#### 🚨 Important Notes 🚨
 - Make sure to enable "Less secure app access" in your Google Account to use Gmail with Nodemailer.
 - Generating an [App Password](https://myaccount.google.com/apppasswords) is strongly recommended for security reasons.
 
@@ -67,7 +67,7 @@ Then, navigate to the project folder and run:
 pm2 start server.js
 ```
 
-### 6. Visit the Website
+## Visit the Website
 Open your browser and go to `http://localhost:<your-port>`
 
 ## Live Demo 🌐
