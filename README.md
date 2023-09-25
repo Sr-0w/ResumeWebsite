@@ -1,6 +1,6 @@
-# Resume Website Project 🌟
+### Resume Website Project 🌟
 
-Welcome to the Resume Website Project! This site is designed to professionally showcase your resume, allow visitors to download your resume as a PDF, and send an email notification with each download.
+Welcome to the Resume Website Project! This project is designed to professionally showcase your resume, allow visitors to download your resume as a PDF, and send an email notification with each download.
 
 ## Features 🚀
 
@@ -20,7 +20,7 @@ Welcome to the Resume Website Project! This site is designed to professionally s
 
 ### 1. Clone the Repository
 ```sh
-git clone https://github.com/Sr-0w/ResumeWebsite.git
+git clone https://github.com/username/ResumeWebsite.git
 ```
 
 ### 2. Install Dependencies
@@ -29,13 +29,70 @@ Navigate to the project folder and run:
 npm install
 ```
 
-### 3. Set up Environment Variables
-Create environment variables for your email user and password. You can do this in your `.bashrc` or `.bash_profile` file as follows:
+### 3. Set up Environment Variables 🌿
+
+To run this project, you will need to set up two environment variables: `EMAIL_USER` and `EMAIL_PASS`. These will hold your Gmail address and your application-specific password respectively. Below are the steps to set up these environment variables:
+
+#### a. Open Your `.bashrc` or `.bash_profile` 📂
+```sh
+nano ~/.bashrc
+```
+or
+```sh
+nano ~/.bash_profile
+```
+
+#### b. Export your Gmail Address 📧
+Add the following line at the end of the file, replacing `'your-email@gmail.com'` with your Gmail address:
 ```sh
 export EMAIL_USER='your-email@gmail.com'
-export EMAIL_PASS='your-application-password'
 ```
-Replace the placeholders with your Gmail address and application-specific password. 
+
+#### c. Encode Your Google App Password in Base64 🔐
+Since Google App Passwords may contain spaces, they need to be encoded in Base64. 
+
+You can either:
+- Use an [online Base64 encoder](https://www.base64encode.org/)
+  
+or
+  
+- Use the command line:
+  ```sh
+  echo -n 'your app password' | base64
+  ```
+
+When using the command line, replace `'your app password'` with your actual app password, keeping the single quotes.
+
+#### d. Export your Encoded App Password 🛠
+Add the following line at the end of the file, replacing `'your-encoded-app-password'` with the Base64 encoded password obtained from the previous step:
+```sh
+export EMAIL_PASS='your-encoded-app-password'
+```
+
+#### e. Save and Exit the File 💾
+- Press `CTRL + X` to close the editor.
+- Press `Y` to confirm changes.
+- Press `Enter` to save the file.
+
+#### f. Load the new Environment Variables 🔄
+```sh
+source ~/.bashrc
+```
+or
+```sh
+source ~/.bash_profile
+```
+
+⚠️ **Important Notes:**
+- You must enable "Less secure app access" in your Google Account to use Gmail with Nodemailer.
+- It's recommended to generate an [App Password](https://myaccount.google.com/apppasswords) for security reasons.
+
+#### Encoding Your Google App Password in Base64
+Since Google App Passwords contain spaces, you must encode them in Base64 to avoid any issues while exporting them as environment variables. You can use online tools like [Base64 Encode](https://www.base64encode.org/) or use the command line as follows:
+```sh
+echo -n 'your app password' | base64
+```
+Replace 'your app password' with your actual app password, keeping the single quotes.
 
 Remember, you must enable "Less secure app access" in your Google Account to use Gmail with Nodemailer, and it's recommended to generate an [App Password](https://myaccount.google.com/apppasswords) for security reasons.
 
@@ -66,4 +123,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Contact 📧
 
-For any questions or suggestions, feel free to reach out to me at <robin@snyders.xyz>
+For any questions or suggestions, feel free to reach out at <robin@snyders.xyz>
