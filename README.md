@@ -20,7 +20,7 @@ Welcome to the Resume Website Project! This site is designed to professionally s
 
 ### 1. Clone the Repository
 ```sh
-git clone <https://github.com/Sr-0w/ResumeWebsite.git>
+git clone https://github.com/Sr-0w/ResumeWebsite.git
 ```
 
 ### 2. Install Dependencies
