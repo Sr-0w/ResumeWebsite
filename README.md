@@ -2,6 +2,9 @@
 
 Welcome to the Resume Website Project! This project is designed to professionally showcase your resume, allow visitors to download your resume as a PDF, and send an email notification with each download.
 
+![Preview](https://i.imgur.com/cBQ1MFo.png)
+
+
 ## Features 🚀
 
 - **Sleek User Interface**: A modern, responsive design that looks great on all devices.
