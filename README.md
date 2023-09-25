@@ -32,48 +32,26 @@ Navigate to the project folder and run:
 npm install
 ```
 
-### 3. Set up Environment Variables 🌿
+### 3. Setting Up Environment Variables 🌿
 
-To run this project, set up the `EMAIL_USER` and `EMAIL_PASS` environment variables for your Gmail address and application-specific password, respectively. Follow the steps below:
+For the project to run, it's crucial to set up the environment variables `EMAIL_USER` and `EMAIL_PASS`. These variables will hold your Gmail address and your application-specific password respectively. Below are the streamlined steps for setting these up:
 
-#### a. Open Your `.bashrc` or `.bash_profile` 📂
+#### Add Gmail Address & Encoded Password to Configuration File 📧🛠
 ```sh
-nano ~/.bashrc  # or nano ~/.bash_profile
+# Add your Gmail address and the Base64 encoded app password to the configuration file
+echo "export EMAIL_USER='your-email@gmail.com'" >> ~/.bashrc  # or >> ~/.bash_profile
+echo "export EMAIL_PASS='$(echo -n 'your app password' | base64)'" >> ~/.bashrc  # or >> ~/.bash_profile
 ```
 
-#### b. Export your Gmail Address 📧
-Add the following line, replacing `'your-email@gmail.com'` with your Gmail address:
+#### Load New Environment Variables 💾🔄
 ```sh
-export EMAIL_USER='your-email@gmail.com'
-```
-
-#### c. Encode Your Google App Password in Base64 🔐
-Google App Passwords may contain spaces and must be encoded in Base64. 
-
-- Use an [online Base64 encoder](https://www.base64encode.org/)
-- Or, use the command line:
-  ```sh
-  echo -n 'your app password' | base64
-  ```
-Replace `'your app password'` with your actual app password, keeping the single quotes.
-
-#### d. Export your Encoded App Password 🛠
-Add the following line, replacing `'your-encoded-app-password'` with your Base64 encoded password:
-```sh
-export EMAIL_PASS='your-encoded-app-password'
-```
-
-#### e. Save and Exit the File 💾
-Press `CTRL + X`, then `Y`, and finally `Enter` to save and exit.
-
-#### f. Load the new Environment Variables 🔄
-```sh
+# Load the new environment variables
 source ~/.bashrc  # or source ~/.bash_profile
 ```
 
-### 🛑 Important Notes 🛑
-- Enable "Less secure app access" in your Google Account to use Gmail with Nodemailer.
-- Generate an [App Password](https://myaccount.google.com/apppasswords) for security reasons.
+### 🚨 Important Notes 🚨
+- Make sure to enable "Less secure app access" in your Google Account to use Gmail with Nodemailer.
+- Generating an [App Password](https://myaccount.google.com/apppasswords) is strongly recommended for security reasons.
 
 ### 4. Replace the Resume and Photo
 - Replace the `resume.pdf` file in the project folder with your resume.
