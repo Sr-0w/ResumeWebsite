@@ -3,11 +3,11 @@ new Particles(document.getElementById("particles"), {
     // size of the particles
     size: { 
       min: 0,
-      max: 2
+      max: 1
     },
 
     // density of particles on the canvas
-    density: 600,  
+    density: 10000,  
 
     // speed of the particules
     speed: 0.50, 
@@ -16,6 +16,6 @@ new Particles(document.getElementById("particles"), {
     fps: 60, 
 
     // color of the particles
-    color: "#757575" 
+    color: "#FFFFFF" 
     
 });

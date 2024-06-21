@@ -14,11 +14,12 @@
 	position: absolute
 }
 
-body,
-html {
-	overflow: hidden;
-	height: 100%;
-	width: 100%
+body, html {
+    /* overflow: auto; If you want to explicitly set the overflow, or you can simply remove the line */
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 @keyframes slide {
@@ -86,8 +87,8 @@ h6 {
 	position: absolute;
 	top: 50%;
 	left: 35%;
-	max-width: 650px
-	z-index: 2;
+	max-width: 650px;
+	z-index: 2
 }
 
 .header-wrapper h1 {
@@ -239,17 +240,20 @@ h6 {
 }
 
 body {
-	background-color: #000
+	background-color: #000;
+	font-family: Montserrat, sans-serif;
 }
+
 #centered-image {
-    position: fixed;
+    position: absolute; /* Changed from fixed to absolute */
     top: 50%;
     right: 15%;
     transform: translateY(-50%);
     max-width: 50%;
     height: auto;
-	filter: grayscale(100%);
-	z-index: 1;
+    filter: grayscale(100%);
+	opacity: 90%;
+    z-index: 2; /* Set an appropriate z-index to layer it correctly */
 }
 
 
@@ -272,16 +276,20 @@ body {
 }
 
 .download-resume-button:hover {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     transform: scale(1.05); /* Slightly enlarge the button */
 }
 
 #particles {
-    pointer-events: none;
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    z-index: 1; /* Make sure it's behind your content, adjust this value if needed */
 }
+
 
 #centered-image {
     z-index: 1;
@@ -291,7 +299,7 @@ body {
 
 @media (max-width: 1425px) {
     body, html {
-        height: 100%; /* Ensure the body and html take the full viewport height */
+        /*height: 100%;*/ /* Ensure the body and html take the full viewport height */
         margin: 0; /* Reset default margins */
         padding: 0; /* Reset default padding */
         bottom: 30px;
@@ -320,3 +328,109 @@ body {
 		max-width: 650px
     }
 }
+
+/* Define CSS custom properties for consistent theming */
+:root {
+    --bg-color-main: #000;
+    --bg-color-card: #1b1b1b;
+    --text-color: #fff;
+    --font-size-title: 2rem;
+    --font-size-subtitle: 1.5rem;
+    --font-size-text: 1rem;
+    --grid-gap: 1.5rem;
+    --max-container-width: 1000px;
+    --box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* Modernize project section */
+.projects-section {
+    color: var(--text-color);
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--bg-color-main);
+    /* Modern scroll snap behavior */
+    scroll-snap-align: start;
+	margin-top: 100vh; /* This pushes the section down by 100% of the viewport height */
+}
+
+.projects-section h2 {
+    margin-bottom: var(--grid-gap);
+	font-size: 32pt;
+	font-weight: 700;
+	letter-spacing: 4pt;
+	line-height: 40pt;
+	color: #fff;
+	text-transform: uppercase;
+	display: block;
+	font-size: 2em;
+	margin-block-start: 0.67em;
+	margin-block-end: 0.67em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	font-weight: bold;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--grid-gap);
+    padding: 0 1.25rem;
+    max-width: var(--max-container-width);
+    margin: auto;
+}
+
+.project-item {
+    background-color: var(--bg-color-card);
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem; /* Rounded corners for a modern look */
+    overflow: hidden; /* Ensure content fits within border radius */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.25rem;
+}
+
+.project-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; /* Ensure the images cover the area without stretching */
+	border-radius: 1rem;
+}
+
+.project-item h3 {
+    margin: 0.625rem 0;
+    font-size: var(--font-size-subtitle);
+}
+
+.project-item p {
+    font-size: var(--font-size-text);
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Full-width project items on smaller screens */
+    }
+
+    .project-item {
+        width: 100%;
+        max-width: 768px; /* Optional: Limit width of project items on smaller screens */
+    }
+}
+
+/* Blob animation styles */
+.projects-section .blob {
+    position: absolute;
+    fill: #023F92;
+    width: 50vmax;
+    z-index: -1;
+    animation: move 10s ease-in-out infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes move {
+    /* keyframes content as provided */
+    /* ... */
+}
+

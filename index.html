@@ -1,28 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Robin Snyders</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div class="header-wrapper">
-        <h1>Aspiring<br/>Network Engineer</h1>
-        <h2>Robin Snyders</h2>
-        
-        <button class="download-resume-button" onclick="location.href='/download-resume'">Download my resume</button>
-
+    <canvas id="particles"></canvas>
+    <div class="main-content">
+        <div class="header-content"> <!-- Create a container for the header content -->
+            <div class="header-wrapper">
+                <h1>Aspiring<br/>Network Engineer</h1>
+                <h2>Robin Snyders</h2>
+                <button class="download-resume-button" onclick="location.href='/download-resume'">Download my resume</button>
+            </div>
+        </div>
+        <div class="image-container"> <!-- Create a container for the image -->
+            <img src="image.png" id="centered-image" alt="Placeholder Image">
+        </div>
     </div>
 
-    <canvas id="particles"></canvas>
+    <!-- The particles.js canvas will be positioned under the wrapper -->
 
-    <img src="image.png" id="centered-image" alt="Placeholder Image">
+    <!-- Projects Section -->
+    <div class="projects-section" id="projects">
+        <div class="blob">
+            <!-- This SVG is from https://codepen.io/Ali_Farooq_/pen/gKOJqx -->
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 350">
+                <path d="M156.4,339.5c31.8-2.5,59.4-26.8,80.2-48.5c28.3-29.5,40.5-47,56.1-85.1c14-34.3,20.7-75.6,2.3-111  c-18.1-34.8-55.7-58-90.4-72.3c-11.7-4.8-24.1-8.8-36.8-11.5l-0.9-0.9l-0.6,0.6c-27.7-5.8-56.6-6-82.4,3c-38.8,13.6-64,48.8-66.8,90.3c-3,43.9,17.8,88.3,33.7,128.8c5.3,13.5,10.4,27.1,14.9,40.9C77.5,309.9,111,343,156.4,339.5z"/>
+            </svg>
+        </div>
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-item">
+                <img src="project-image-1.jpg" alt="Project Image 1">
+                <h3>Old Server repurposed</h3>
+                <p>I bought an old Fujitsu TX2540 M1...</p>
+                <button class="download-resume-button">Learn More</button>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-item">
+                <img src="project-image-2.jpg" alt="Project Image 2">
+                <h3>HomeLab</h3>
+                <p>I made a custom network bay at home...</p>
+                <button class="download-resume-button" onclick="location.href='/download-resume'">Learn More</button>
+            </div>
+            <div class="project-item">
+                <img src="project-image-3.jpg" alt="Project Image 2">
+                <h3>HomeLab</h3>
+                <p>I made a custom network bay at home...</p>
+                <button class="download-resume-button" onclick="location.href='/download-resume'">Learn More</button>
+            </div>
+            <div class="project-item">
+                <img src="project-image-4.jpg" alt="Project Image 2">
+                <h3>HomeLab</h3>
+                <p>I made a custom network bay at home...</p>
+                <button class="download-resume-button" onclick="location.href='/download-resume'">Learn More</button>
+            </div>
+            <div class="project-item">
+                <img src="project-image-5.jpg" alt="Project Image 2">
+                <h3>HomeLab</h3>
+                <p>I made a custom network bay at home...</p>
+                <button class="download-resume-button" onclick="location.href='/download-resume'">Learn More</button>
+            </div>
+            <div class="project-item">
+                <img src="project-image-6.jpg" alt="Project Image 2">
+                <h3>HomeLab</h3>
+                <p>I made a custom network bay at home...</p>
+                <button class="download-resume-button" onclick="location.href='/download-resume'">Learn More</button>
+            </div>
+            <!-- More projects can be added here -->
+        </div>
+    </div>
 
+    <!-- Scripts -->
     <script src="particles.js"></script>
     <script src="particles-custom.js"></script>
 </body>
-
 </html>
