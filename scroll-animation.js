@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let delay = 0;
             elements.forEach((element) => {
                 observeElement(element, delay);
-                delay += 200; // Increment the delay for the next element
+                delay += 500; // Increment the delay for the next element
             });
         }
     };
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let delay = 0;
         elements.forEach((element) => {
             observeElement(element, delay);
-            delay += 200; // Increment the delay for each element
+            delay += 500; // Increment the delay for each element
         });
     }
 });
