@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Select all elements that need the animation
     const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
 
-    const observeElement = (element) => {
-        observer.observe(element);
+    const observeElement = (element, delay) => {
+        setTimeout(() => observer.observe(element), delay);
     };
 
     // Array to hold all the image elements
@@ -24,8 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageLoadHandler = () => {
         imagesToLoad--;
         if (imagesToLoad === 0) {
-            // Start observing all elements once all images have loaded
-            elements.forEach(observeElement);
+            // Start observing all elements once all images have loaded, with a delay between observations
+            elements.forEach((element, index) => {
+                observeElement(element, index * 200); // Delay increased by 200ms for each element
+            });
         }
     };
 
@@ -38,8 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // If there are no images, just observe all elements immediately
+    // If there are no images, just observe all elements immediately with a delay
     if (images.length === 0) {
-        elements.forEach(observeElement);
+        elements.forEach((element, index) => {
+            observeElement(element, index * 200); // Delay increased by 200ms for each element
+        });
     }
 });
