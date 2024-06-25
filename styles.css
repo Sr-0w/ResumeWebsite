@@ -620,7 +620,7 @@ body {
 }
 
 .article-image {
-    min-height: 300px; /* Adjust based on typical image height */
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -704,6 +704,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+	height: 550px;
     background: #3b3b3b; /* Placeholder color or use a small blurred image as background-image */
     z-index: -1;
 }
