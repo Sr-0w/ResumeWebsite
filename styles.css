@@ -564,6 +564,8 @@ body {
 }
 
 .article-image {
+	position: relative;
+    width: 100%; /* Ensures the container stretches to the width of its parent */
     margin: 20px 0;
     overflow: hidden;
     border-radius: 1rem;
@@ -593,6 +595,33 @@ body {
     clear: both;
     width: 100%;
 }
+
+.article-image.aspect-16-9::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%; /* 100 * (9 / 16) = 56.25% */
+    background: #3b3b3b; /* Placeholder color */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.article-image.aspect-1-1::before {
+    content: '';
+    display: block;
+    padding-top: 100%; /* 100 * (1 / 1) = 100% */
+    background: #3b3b3b; /* Placeholder color */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
 
 /* Reset float for small screens and ensure content flows naturally */
 @media (max-width: 768px) {
