@@ -10,38 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.1
     });
 
+    // Select all elements that need the animation
     const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
 
     const observeElement = (element) => {
         observer.observe(element);
     };
 
-    let images = document.querySelectorAll('img');
-    let imagesLoaded = 0;
+    // Array to hold all the image elements
+    const images = Array.from(document.querySelectorAll('img'));
+    let imagesToLoad = images.length;
 
-    const imageLoaded = () => {
-        imagesLoaded++;
-        if (imagesLoaded === images.length) {
-            elements.forEach(element => {
-                if (element.tagName !== 'IMG') {
-                    observeElement(element);
-                }
-            });
+    const imageLoadHandler = () => {
+        imagesToLoad--;
+        if (imagesToLoad === 0) {
+            // Start observing all elements once all images have loaded
+            elements.forEach(observeElement);
         }
     };
 
     images.forEach(img => {
         if (img.complete) {
-            imageLoaded(); // Check if image has already loaded
+            imageLoadHandler(); // Check if the image is already loaded
         } else {
-            img.addEventListener('load', () => {
-                observeElement(img);
-                imageLoaded();
-            }, { once: true });
-            img.addEventListener('error', () => {
-                observeElement(img);
-                imageLoaded();
-            }, { once: true }); // Consider image "loaded" even if there's an error
+            img.addEventListener('load', imageLoadHandler, { once: true });
+            img.addEventListener('error', imageLoadHandler, { once: true }); // Also consider it "loaded" on error
         }
     });
+
+    // If there are no images, just observe all elements immediately
+    if (images.length === 0) {
+        elements.forEach(observeElement);
+    }
 });
