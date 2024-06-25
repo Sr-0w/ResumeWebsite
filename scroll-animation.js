@@ -1,9 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries, observer) => {
+    const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
+    const images = document.querySelectorAll('img');
+    let loadedImages = 0;
+    const totalImages = images.length;
+    let lastAnimationTime = 0;
+    const delayBetweenAnimations = 5000; // 5000 ms or 5 seconds
+
+    // Function to add 'visible' class with a delay based on the last animation time
+    const setVisibleWithDelay = (element) => {
+        const currentTime = Date.now();
+        const timeSinceLastAnimation = currentTime - lastAnimationTime;
+        const delay = timeSinceLastAnimation > delayBetweenAnimations ? 0 : delayBetweenAnimations - timeSinceLastAnimation;
+        setTimeout(() => {
+            element.classList.add('visible');
+            lastAnimationTime = Date.now();
+        }, delay);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once visible
+                setVisibleWithDelay(entry.target);
             }
         });
     }, {
@@ -11,43 +28,25 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.1
     });
 
-    // Select all elements that need the animation
-    const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
-
-    let delay = 0; // Start with no delay
-    const delayedVisibility = (element, delay) => {
-        setTimeout(() => {
-            observer.observe(element);
-        }, delay);
+    const imageLoaded = () => {
+        loadedImages++;
+        if (loadedImages === totalImages) {
+            // Start observing elements for animation once all images are loaded
+            elements.forEach(element => observer.observe(element));
+        }
     };
 
-    const images = document.querySelectorAll('img');
-    const checkImagesLoaded = () => {
-        return Array.from(images).every(img => img.complete || img.naturalHeight !== 0);
-    };
-
-    const observeElementsWithDelay = () => {
-        elements.forEach(element => {
-            delayedVisibility(element, delay);
-            delay += 5000; // Increment delay for each element by 5000ms (5 seconds)
-        });
-    };
-
-    if (checkImagesLoaded()) {
-        observeElementsWithDelay();
+    if (totalImages === 0) {
+        // If there are no images, start observing elements immediately
+        elements.forEach(element => observer.observe(element));
     } else {
-        // Listen for the load event on each image, then check again
-        Array.from(images).forEach(img => {
-            img.addEventListener('load', () => {
-                if (checkImagesLoaded()) {
-                    observeElementsWithDelay();
-                }
-            });
-            img.addEventListener('error', () => {
-                if (checkImagesLoaded()) {
-                    observeElementsWithDelay();
-                }
-            });
+        images.forEach(img => {
+            if (img.complete) {
+                imageLoaded(); // If some images are already loaded
+            } else {
+                img.addEventListener('load', imageLoaded, { once: true });
+                img.addEventListener('error', imageLoaded, { once: true }); // Count errors as loaded
+            }
         });
     }
 });
