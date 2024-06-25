@@ -749,7 +749,7 @@ body {
     z-index: 1000; /* Ensures it appears above other elements */
 }
 
-.back-button img {
+.back-button-img {
 	position: fixed;
     width: 40px; /* Adjust size as needed */
     height: 40px;
@@ -757,6 +757,6 @@ body {
 	transition: transform 0.3s;
 }
 
-.back-button img:hover {
+.back-button-img:hover {
     transform: scale(1.2); /* Scale up the image a bit */
 }
