@@ -1,23 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
-    const images = document.querySelectorAll('img');
-    let loadedImages = 0;
-    const totalImages = images.length;
-    let lastAnimationTime = Date.now(); // Initialize last animation time
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                const currentTime = Date.now();
-                const timeSinceLastAnimation = currentTime - lastAnimationTime;
-                const delay = Math.max(5000 - timeSinceLastAnimation, 0); // Ensure minimum delay of 5 seconds
-
                 setTimeout(() => {
                     entry.target.classList.add('visible');
-                    lastAnimationTime = Date.now(); // Update the time of the last animation
-                }, delay);
-
-                observer.unobserve(entry.target); // Unobserve after setting the timeout to make visible
+                }, index * 100); // Adjust the delay as needed (100ms in this example)
             }
         });
     }, {
@@ -25,23 +12,24 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.1
     });
 
-    const imageLoaded = () => {
-        loadedImages++;
-        if (loadedImages === totalImages) {
-            elements.forEach(element => observer.observe(element)); // Start observing elements after all images are loaded
-        }
+    // Select all elements that need the animation
+    const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
+    
+    // Function to observe element
+    const observeElement = (element) => {
+        observer.observe(element);
     };
 
-    if (totalImages === 0) {
-        elements.forEach(element => observer.observe(element)); // If no images, observe elements immediately
-    } else {
-        images.forEach(img => {
-            if (img.complete) {
-                imageLoaded(); // If image is already loaded
+    elements.forEach((element, index) => {
+        if (element.tagName === 'IMG') {
+            if (element.complete) {
+                observeElement(element); // If image is already loaded
             } else {
-                img.addEventListener('load', imageLoaded, { once: true });
-                img.addEventListener('error', imageLoaded, { once: true }); // Also count errors as "loaded"
+                element.addEventListener('load', () => observeElement(element), { once: true });
+                element.addEventListener('error', () => observeElement(element), { once: true }); // In case the image fails to load
             }
-        });
-    }
+        } else {
+            observeElement(element);
+        }
+    });
 });
