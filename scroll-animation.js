@@ -2,7 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                // Adding visible class with a delay after the element is intersecting
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, 5000); // 5-second delay before making each element visible
             }
         });
     }, {
@@ -13,22 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Select all elements that need the animation
     const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
 
-    // Function to observe element with a delay
-    const observeElement = (element, delay) => {
-        setTimeout(() => observer.observe(element), delay);
-    };
-
     const images = Array.from(document.querySelectorAll('img'));
     let imagesToLoad = images.length;
 
     const imageLoadHandler = () => {
         imagesToLoad--;
         if (imagesToLoad === 0) {
-            // Apply a staggered delay for each element's observation
-            let delay = 0;
-            elements.forEach((element) => {
-                observeElement(element, delay);
-                delay += 5000; // Increment the delay for the next element
+            // Start observing all elements after all images have loaded
+            elements.forEach(element => {
+                observer.observe(element);
             });
         }
     };
@@ -38,16 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
             imageLoadHandler(); // If image is already loaded
         } else {
             img.addEventListener('load', imageLoadHandler, { once: true });
-            img.addEventListener('error', imageLoadHandler, { once: true }); // Handle load error
+            img.addEventListener('error', imageLoadHandler, { once: true }); // Also consider it "loaded" on error
         }
     });
 
-    // If there are no images, observe all elements immediately but with a staggered delay
+    // If there are no images, just observe all elements immediately
     if (images.length === 0) {
-        let delay = 0;
-        elements.forEach((element) => {
-            observeElement(element, delay);
-            delay += 5000; // Increment the delay for each element
+        elements.forEach(element => {
+            observer.observe(element);
         });
     }
 });
