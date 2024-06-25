@@ -95,17 +95,17 @@
 <script src="particles-custom.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Sélectionnez toutes les cartes dans le conteneur observé
                 const items = entry.target.querySelectorAll('.project-item');
                 items.forEach((item, index) => {
-                    const delay = index * 500; // Décalage incrémentiel
+                    const delay = index * 500;
                     item.style.transitionDelay = `${delay}ms`;
                     item.style.opacity = 1;
                     item.style.transform = "translateY(0)";
                 });
+                observer.unobserve(entry.target); // Unobserve once the animation is applied
             }
         });
     }, {
@@ -113,11 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
         threshold: 0.1
     });
 
-    // Observer chaque 'row' ou 'projects-grid' si c'est le conteneur global
     document.querySelectorAll('.projects-grid').forEach(container => {
         observer.observe(container);
     });
 });
+
 
 </script>
 
