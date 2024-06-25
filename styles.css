@@ -311,7 +311,7 @@ body {
     }
 
     #centered-image {
-        position: fixed;
+        position: absolute;
         top: 20px; /* Padding at the top */
         left: 50%; /* Centering the image */
         transform: translateX(-50%); /* Adjusting for true centering */
@@ -320,7 +320,7 @@ body {
     }
 
     .header-wrapper {
-        position: fixed;
+        position: absolute;
         bottom: 20px; /* Padding at the bottom */
         left: 50%; /* Center the content horizontally */
         transform: translateX(-50%); /* Adjusting for true centering */
