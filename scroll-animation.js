@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        rootMargin: '0px',
+        rootMargin: '300px',
         threshold: 0.1
     });
 
