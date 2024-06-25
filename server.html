@@ -3,99 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robin Snyders</title>
+    <title>Old Server Repurposed</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>  
-    <div class="construction-banner">
-        <div class="banner-content">
-            <p>WEBSITE UNDER CONSTRUCTION</p>
+    <div class="article-header">
+        <h1>Old Server Repurposed</h1>
+        <p>Discovering new life in an old Fujitsu TX2540 M1</p>
+    </div>
+
+    <div class="article-content">
+        <div class="article-image full-width">
+            <img src="server-setup.jpg" alt="Server Setup">
         </div>
+        <p>Recently, I acquired an old Fujitsu TX2540 M1 server from a local surplus store. This server, once deemed outdated, has been given a new purpose in my home lab setup. Here's a journey through the transformation and learning curve I experienced with this project.</p>
+        
+        <div class="content-with-image">
+            <div class="article-image side-by-side">
+                <img src="upgrades.jpg" alt="Hardware Upgrades">
+            </div>
+            <div class="text-next-to-image">
+                <h2>Project Initiation</h2>
+                <p>The Fujitsu TX2540 M1 was in a decent state, but it needed some upgrades to be useful for my needs. I started by increasing the RAM and replacing the old hard drives with SSDs for better performance.</p>
+            </div>
+        </div>
+
+        <h2>Challenges Faced</h2>
+        <p>One of the main challenges was updating the BIOS, which was necessary to support newer operating systems and hardware upgrades. Another issue was configuring the RAID setup, which was initially confusing but provided a great learning opportunity.</p>
+        
+        <div class="article-image full-width">
+            <img src="server-room.jpg" alt="Server Room">
+        </div>
+        <h2>Learning and Outcomes</h2>
+        <p>This project not only enhanced my technical skills but also taught me about server maintenance, network setup, and resource optimization. It now serves as a personal cloud storage and media server, demonstrating that older technology can still be incredibly useful with the right tweaks.</p>
+        
+        <h2>Conclusion</h2>
+        <p>The 'Old Server Repurposed' project was a rewarding experience that allowed me to deepen my understanding of network engineering and server management. It's a testament to the idea that old technology can find new life with a bit of creativity and effort.</p>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 by Robin Snyders. All rights reserved.</p>
     </div>
     
-    <!-- Projects Section -->
-    <div class="projects-section" id="projects">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <!-- Example Project Item with background image -->
-            <div class="project-item" style="background-image: url('project-image-1.jpg');">
-                <div class="project-content">
-                    <h3>Old Server Repurposed</h3>
-                    <p>I bought an old Fujitsu TX2540 M1</p>
-                    <button class="cards-buttons">Learn More</button>
-                </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="project-item" style="background-image: url('project-image-2.jpg');">
-                <div class="project-content">
-                    <h3>HomeLab</h3>
-                    <p>I made a custom network bay at home</p>
-                    <button class="cards-buttons">Learn More</button>
-                </div>
-            </div>
-            <div class="project-item" style="background-image: url('project-image-3.jpg');">
-                <div class="project-content">
-                    <h3>3D Printer</h3>
-                    <p>I own and run a 3D printer</p>
-                    <button class="cards-buttons">Learn More</button>
-                </div>
-            </div>
-            <div class="project-item" style="background-image: url('project-image-4.jpg');">
-                <div class="project-content">
-                    <h3>ESP32 Wiring and Programming</h3>
-                    <p>I made custom smart lights</p>
-                    <button class="cards-buttons">Learn More</button>
-                </div>
-            </div>
-            <div class="project-item" style="background-image: url('project-image-5.jpg');">
-                <div class="project-content">
-                    <h3>This Website</h3>
-                    <p>I built this portfolio website to feature my projects and skills transition</p>
-                    <button class="cards-buttons">Learn More</button>
-                </div>
-            </div>
-            <div class="project-item" style="background-image: url('project-image-6.jpg');">
-                <div class="project-content">
-                    <h3>GitHub Projects</h3>
-                    <p>My GitHub repository with projects reflecting my journey into coding</p>
-                    <button class="cards-buttons">Learn More</button>
-                </div>
-            </div>
-            <!-- More projects can be added here -->
-        </div>
-    </div>
-
-<!-- Scripts -->
-<script src="particles.js"></script>
-<script src="particles-custom.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Sélectionnez toutes les cartes dans le conteneur observé
-                const items = entry.target.querySelectorAll('.project-item');
-                items.forEach((item, index) => {
-                    const delay = index * 500; // Décalage incrémentiel
-                    item.style.transitionDelay = `${delay}ms`;
-                    item.style.opacity = 1;
-                    item.style.transform = "translateY(0)";
-                });
-            }
-        });
-    }, {
-        rootMargin: '0px',
-        threshold: 0.1
-    });
-
-    // Observer chaque 'row' ou 'projects-grid' si c'est le conteneur global
-    document.querySelectorAll('.projects-grid').forEach(container => {
-        observer.observe(container);
-    });
-});
-
-</script>
-
-        
+    <script src="script.js"></script>
 </body>
 </html>

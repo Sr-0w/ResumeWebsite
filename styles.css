@@ -504,3 +504,146 @@ body {
 }
 
 
+
+
+/* ARTICLE PAGE */
+
+
+
+.article-header {
+    text-align: center;
+    padding: 50px 20px;
+    background: var(--bg-color-main);
+    color: var(--text-color);
+}
+
+.article-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.article-header p {
+    font-size: 1.5em;
+    color: var(--text-color);
+}
+
+.article-content {
+    max-width: var(--max-container-width);
+    margin: auto;
+    padding: 20px;
+    font-size: var(--font-size-text);
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.article-content h2 {
+    margin-top: 2rem;
+    font-size: 1.8em;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--bg-color-card);
+    color: var(--text-color);
+}
+
+@media only screen and (max-width: 768px) {
+    .article-header h1,
+    .article-header p {
+        font-size: 1.2em;
+    }
+
+    .article-content {
+        padding: 15px;
+    }
+}
+
+.article-image {
+    margin: 20px 0;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.article-image.side-by-side {
+    float: left;
+    width: 50%;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .article-image.side-by-side {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.full-width {
+    clear: both;
+    width: 100%;
+}
+
+/* Reset float for small screens and ensure content flows naturally */
+@media (max-width: 768px) {
+    .side-by-side {
+        float: none;
+        width: 100%;
+    }
+}
+
+.content-with-image {
+    display: flex;
+    flex-direction: row; /* Explicitly set the flex direction */
+    align-items: flex-start;
+    justify-content: flex-start; /* Align items to the start of the container */
+    margin-bottom: 20px;
+}
+
+.article-image.side-by-side {
+    flex: 0 1 50%; /* Do not grow, but can shrink, occupying up to 50% of the container */
+    margin-right: 20px; /* Space between the image and the text */
+}
+
+.text-next-to-image {
+    flex: 0 1 50%; /* Do not grow, but can shrink, occupying up to 50% of the container */
+}
+
+/* Adjust image container to not float and fill the designated space */
+.article-image img {
+    width: 100%; /* Fill the container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    .content-with-image {
+        flex-direction: column;
+    }
+
+    .article-image.side-by-side,
+    .text-next-to-image {
+        flex: 1 1 100%;
+        max-width: 100%; /* Ensure it takes full width */
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .content-with-image {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+
+    .article-image.side-by-side,
+    .text-next-to-image {
+        flex: 1 1 100%; /* Take full width on small screens */
+        margin-right: 0;
+        max-width: 100%; /* Ensure it takes full width */
+    }
+}
