@@ -53,6 +53,10 @@ app.use((req, res, next) => {
 // Serve static files
 app.use(express.static(__dirname));
 
+app.get('/fujitsu-server', (req, res) => {
+    res.sendFile(path.join(__dirname, 'server.html'));
+});
+
 // Route to serve the PDF file and send email notification
 app.get('/download-resume', (req, res) => {
     const filePath = path.join(__dirname, 'resume.pdf');
