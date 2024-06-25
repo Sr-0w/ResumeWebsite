@@ -3,24 +3,35 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll('img');
     let loadedImages = 0;
     const totalImages = images.length;
-    let lastAnimationTime = 0;
-    const delayBetweenAnimations = 5000; // 5000 ms or 5 seconds
 
-    // Function to add 'visible' class with a delay based on the last animation time
-    const setVisibleWithDelay = (element) => {
+    // Animation queue to manage delay between animations
+    let animationQueue = [];
+    let lastAnimationTime = 0;
+    const delayBetweenAnimations = 5000; // Delay of 5 seconds
+
+    // Function to process the animation queue
+    const processAnimationQueue = () => {
+        if (animationQueue.length === 0) return;
+
         const currentTime = Date.now();
         const timeSinceLastAnimation = currentTime - lastAnimationTime;
-        const delay = timeSinceLastAnimation > delayBetweenAnimations ? 0 : delayBetweenAnimations - timeSinceLastAnimation;
-        setTimeout(() => {
+
+        if (timeSinceLastAnimation >= delayBetweenAnimations) {
+            const element = animationQueue.shift();
             element.classList.add('visible');
             lastAnimationTime = Date.now();
-        }, delay);
+            setTimeout(processAnimationQueue, delayBetweenAnimations); // Schedule next animation
+        } else {
+            setTimeout(processAnimationQueue, delayBetweenAnimations - timeSinceLastAnimation); // Wait the remaining time
+        }
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                setVisibleWithDelay(entry.target);
+                observer.unobserve(entry.target); // Stop observing the element
+                animationQueue.push(entry.target); // Add element to the queue
+                processAnimationQueue(); // Try processing the queue
             }
         });
     }, {
