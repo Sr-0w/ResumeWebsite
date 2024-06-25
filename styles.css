@@ -721,14 +721,12 @@ body {
     text-align: justify; /* Or center, based on preference */
 }
 
-/* Initially hide and position the animatable elements */
 .animatable {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-/* You can add this class in your HTML or dynamically via JavaScript */
 .article-image, .text-next-to-image, p, h2 {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     opacity: 0;
@@ -740,7 +738,6 @@ body {
     transform: translateY(0px);
 }
 
-/* Back Button Style */
 .back-button {
     position: fixed;
     top: 20px;
