@@ -78,6 +78,10 @@ app.get('/github-projects', (req, res) => {
     res.sendFile(path.join(__dirname, 'github-projects.html'));
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Route to serve the PDF file and send email notification
 app.get('/download-resume', (req, res) => {
     const filePath = path.join(__dirname, 'resume.pdf');

@@ -739,3 +739,24 @@ body {
     opacity: 1;
     transform: translateY(0px);
 }
+
+/* Back Button Styling */
+.back-button-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999; /* Ensure it is above other content */
+    cursor: pointer;
+}
+
+.back-button-container svg {
+    width: 48px;
+    height: 48px;
+    fill: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.back-button-container:hover svg {
+    transform: scale(1.2); /* Slightly enlarge the button on hover */
+}
+
