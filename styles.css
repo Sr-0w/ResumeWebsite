@@ -389,9 +389,9 @@ body {
     position: relative;
     opacity: 0; /* Initially hidden */
     transform: translateY(20px); /* Slightly translate downwards */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+	filter: brightness(100%); /* Default brightness */
 }
-
 
 .project-content {
     position: absolute;
