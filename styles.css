@@ -750,6 +750,7 @@ body {
 }
 
 .back-button img {
+	position: fixed;
     width: 40px; /* Adjust size as needed */
     height: 40px;
     cursor: pointer;
