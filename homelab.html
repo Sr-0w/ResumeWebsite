@@ -45,26 +45,7 @@
         <p>© 2024 by Robin Snyders. All rights reserved.</p>
     </div>
     
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible'); // Adds a class that triggers the animation
-                    }
-                });
-            }, {
-                rootMargin: '0px',
-                threshold: 0.1 // Trigger when 10% of the target is visible
-            });
+    <script src="scroll-animation.js"></script>
 
-            // Select all elements that need the animation
-            const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
-            elements.forEach(element => {
-                observer.observe(element); // Observe each selected element
-            });
-        });
-    </script>
-    
 </body>
 </html>
