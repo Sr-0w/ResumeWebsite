@@ -739,19 +739,19 @@ body {
 }
 
 .back-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
+	position: fixed;
+	top: 20px;
+	left: 20px;
 }
-
+/* TEST */
 .back-button-img {
 	position: fixed;
-    width: 40px; /* Adjust size as needed */
-    height: 40px;
-    cursor: pointer;
+	width: 40px; /* Adjust size as needed */
+	height: 40px;
+	cursor: pointer;
 	transition: transform 0.3s;
-}
+	}
 
 .back-button-img:hover {
-    transform: scale(1.2); /* Scale up the image a bit */
+	transform: scale(1.2); /* Scale up the image a bit */
 }
