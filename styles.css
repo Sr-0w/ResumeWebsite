@@ -272,12 +272,14 @@ body {
     font-weight: 700;
     font-size: 10pt;
     letter-spacing: 4pt;
+	border-radius: 1rem;
     transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add transform to the transition */
 }
 
 .download-resume-button:hover {
     background-color: rgba(0, 0, 0, 0);
     color: white;
+	border-radius: 1rem;
     transform: scale(1.05); /* Slightly enlarge the button */
 }
 
@@ -380,57 +382,102 @@ body {
 }
 
 .project-item {
-    background-color: var(--bg-color-card);
-    box-shadow: var(--box-shadow);
-    border-radius: 1rem; /* Rounded corners for a modern look */
-    overflow: hidden; /* Ensure content fits within border radius */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 1.25rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-size: auto 100%;  /* Scales the image to cover the height fully */
+    background-position: center;  /* Centers the background image */
+    height: 400px;  /* Fixed height; adjust based on your design needs */
+    width: 100%;  /* Ensures the div takes up the full width of its container */
+    position: relative;
 }
 
-.project-item img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover; /* Ensure the images cover the area without stretching */
-	border-radius: 1rem;
+.project-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Distributes space between items inside the content */
+    align-items: center;  /* Center aligns the content items horizontally */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);  /* Optional: adds a semi-transparent overlay to enhance text readability */
+    color: white;  /* Ensures text color is white for better visibility */
+    z-index: 2;  /* Ensures the content is on top of the background */
 }
 
-.project-item h3 {
-    margin: 0.625rem 0;
-    font-size: var(--font-size-subtitle);
+.project-item h3, .project-item p {
+    z-index: 2; /* Ensures text is above the background overlay */
+    width: 100%; /* Ensure full width for alignment */
+    text-align: center; /* Center align the text */
+	margin: 0; /* Resets any default margin */
+    padding-top: 5px; /* Adds padding on top of p instead of margin */
 }
 
 .project-item p {
-    font-size: var(--font-size-text);
-    line-height: 1.6; /* Improved readability */
+    margin-top: 5px; /* Provide spacing between h3 and paragraph */
 }
 
-/* Responsive grid adjustments */
-@media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr; /* Full-width project items on smaller screens */
-    }
-
-    .project-item {
-        width: 100%;
-        max-width: 768px; /* Optional: Limit width of project items on smaller screens */
-    }
+.cards-buttons {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+    padding: 20px 15px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    width: calc(100% - 40px); /* Account for padding */
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 10pt;
+    letter-spacing: 4pt;
+	border-radius: 1rem;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add transform to the transition */
+	margin-top: auto; /* Push the button to the bottom of the container */
+    width: calc(100% - 40px); /* Adjust width considering padding */
 }
 
-/* Blob animation styles */
-.projects-section .blob {
+.cards-buttons:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    transform: scale(1.05); /* Slightly enlarge the button */
+	border-radius: 1rem;
+}
+
+.scroll-down {
     position: absolute;
-    fill: #023F92;
-    width: 50vmax;
-    z-index: -1;
-    animation: move 10s ease-in-out infinite;
-    transform-origin: 50% 50%;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3; /* Ensure it's above other content */
+
+	fill: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
-@keyframes move {
-    /* keyframes content as provided */
-    /* ... */
+.scroll-down img {
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
+    animation: bounce 2s infinite;
+	fill: rgb(255, 255, 255);
+	z-index: -2;
 }
 
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-2.5px);
+    }
+}
