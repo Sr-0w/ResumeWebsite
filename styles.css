@@ -753,6 +753,7 @@ body {
 	position: fixed;
     width: 40px; /* Adjust size as needed */
     height: 40px;
+    cursor: pointer;
 	transition: transform 0.3s;
 }
 
