@@ -3,35 +3,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const images = document.querySelectorAll('img');
     let loadedImages = 0;
     const totalImages = images.length;
+    let lastAnimationTime = Date.now(); // Initialize last animation time
 
-    // Animation queue to manage delay between animations
-    let animationQueue = [];
-    let lastAnimationTime = 0;
-    const delayBetweenAnimations = 5000; // Delay of 5 seconds
-
-    // Function to process the animation queue
-    const processAnimationQueue = () => {
-        if (animationQueue.length === 0) return;
-
-        const currentTime = Date.now();
-        const timeSinceLastAnimation = currentTime - lastAnimationTime;
-
-        if (timeSinceLastAnimation >= delayBetweenAnimations) {
-            const element = animationQueue.shift();
-            element.classList.add('visible');
-            lastAnimationTime = Date.now();
-            setTimeout(processAnimationQueue, delayBetweenAnimations); // Schedule next animation
-        } else {
-            setTimeout(processAnimationQueue, delayBetweenAnimations - timeSinceLastAnimation); // Wait the remaining time
-        }
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                observer.unobserve(entry.target); // Stop observing the element
-                animationQueue.push(entry.target); // Add element to the queue
-                processAnimationQueue(); // Try processing the queue
+                const currentTime = Date.now();
+                const timeSinceLastAnimation = currentTime - lastAnimationTime;
+                const delay = Math.max(5000 - timeSinceLastAnimation, 0); // Ensure minimum delay of 5 seconds
+
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                    lastAnimationTime = Date.now(); // Update the time of the last animation
+                }, delay);
+
+                observer.unobserve(entry.target); // Unobserve after setting the timeout to make visible
             }
         });
     }, {
@@ -42,21 +28,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const imageLoaded = () => {
         loadedImages++;
         if (loadedImages === totalImages) {
-            // Start observing elements for animation once all images are loaded
-            elements.forEach(element => observer.observe(element));
+            elements.forEach(element => observer.observe(element)); // Start observing elements after all images are loaded
         }
     };
 
     if (totalImages === 0) {
-        // If there are no images, start observing elements immediately
-        elements.forEach(element => observer.observe(element));
+        elements.forEach(element => observer.observe(element)); // If no images, observe elements immediately
     } else {
         images.forEach(img => {
             if (img.complete) {
-                imageLoaded(); // If some images are already loaded
+                imageLoaded(); // If image is already loaded
             } else {
                 img.addEventListener('load', imageLoaded, { once: true });
-                img.addEventListener('error', imageLoaded, { once: true }); // Count errors as loaded
+                img.addEventListener('error', imageLoaded, { once: true }); // Also count errors as "loaded"
             }
         });
     }
