@@ -679,7 +679,7 @@ body {
 
 /* You can add this class in your HTML or dynamically via JavaScript */
 .article-image, .text-next-to-image, p, h2 {
-    transition: transform 0.5s, opacity 0.5s;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     opacity: 0;
     transform: translateY(30px);
 }
