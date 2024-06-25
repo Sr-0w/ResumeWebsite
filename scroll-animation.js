@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (imagesToLoad === 0) {
             // Start observing all elements once all images have loaded, with a delay between observations
             elements.forEach((element, index) => {
-                observeElement(element, index * 500); // Delay increased by 200ms for each element
+                observeElement(element, index * 1000); // Delay increased by 200ms for each element
             });
         }
     };
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // If there are no images, just observe all elements immediately with a delay
     if (images.length === 0) {
         elements.forEach((element, index) => {
-            observeElement(element, index * 500); // Delay increased by 200ms for each element
+            observeElement(element, index * 1000); // Delay increased by 200ms for each element
         });
     }
 });
