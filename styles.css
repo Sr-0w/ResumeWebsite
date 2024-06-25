@@ -481,3 +481,26 @@ body {
         transform: translateY(-2.5px);
     }
 }
+
+.construction-banner {
+    background: repeating-linear-gradient(
+        45deg,
+        orange,
+        orange 10px,
+        black 10px,
+        black 20px
+    );
+    padding: 5px 0; /* Reduced padding to decrease height */
+    text-align: center;
+}
+
+.banner-content p {
+    color: white; /* Ensures text is readable on dark background */
+    font-size: 1.5em; /* Adjust size as necessary */
+    margin: 0; /* Removes default paragraph margin */
+    font-weight: bold; /* Makes the text bold */
+    text-shadow: 0 0 6px #000, 0 0 10px #000; /* Black glow for high contrast and readability */
+	z-index: 999999;
+}
+
+
