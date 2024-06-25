@@ -740,24 +740,21 @@ body {
     transform: translateY(0px);
 }
 
-/* Back Button Styling */
-.back-button-container {
+/* Back Button Style */
+.back-button {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 999; /* Ensure it is above other content */
+    z-index: 1000; /* Ensures it appears above other elements */
+}
+
+.back-button img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
     cursor: pointer;
+	transition: transform 0.3s;
 }
 
-.back-button-container svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-    transition: transform 0.3s ease-in-out;
+.back-button img:hover {
+    transform: scale(1.2); /* Scale up the image a bit */
 }
-
-.back-button-container:hover svg {
-    transform: scale(1.2); /* Slightly enlarge the button on hover */
-}
-
-
