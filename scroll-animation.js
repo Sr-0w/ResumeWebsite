@@ -1,11 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Adding visible class with a delay after the element is intersecting
-                setTimeout(() => {
-                    entry.target.classList.add('visible');
-                }, 5000); // 5-second delay before making each element visible
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Stop observing once visible
             }
         });
     }, {
@@ -16,32 +14,40 @@ document.addEventListener("DOMContentLoaded", () => {
     // Select all elements that need the animation
     const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
 
-    const images = Array.from(document.querySelectorAll('img'));
-    let imagesToLoad = images.length;
-
-    const imageLoadHandler = () => {
-        imagesToLoad--;
-        if (imagesToLoad === 0) {
-            // Start observing all elements after all images have loaded
-            elements.forEach(element => {
-                observer.observe(element);
-            });
-        }
+    let delay = 0; // Start with no delay
+    const delayedVisibility = (element, delay) => {
+        setTimeout(() => {
+            observer.observe(element);
+        }, delay);
     };
 
-    images.forEach(img => {
-        if (img.complete) {
-            imageLoadHandler(); // If image is already loaded
-        } else {
-            img.addEventListener('load', imageLoadHandler, { once: true });
-            img.addEventListener('error', imageLoadHandler, { once: true }); // Also consider it "loaded" on error
-        }
-    });
+    const images = document.querySelectorAll('img');
+    const checkImagesLoaded = () => {
+        return Array.from(images).every(img => img.complete || img.naturalHeight !== 0);
+    };
 
-    // If there are no images, just observe all elements immediately
-    if (images.length === 0) {
+    const observeElementsWithDelay = () => {
         elements.forEach(element => {
-            observer.observe(element);
+            delayedVisibility(element, delay);
+            delay += 5000; // Increment delay for each element by 5000ms (5 seconds)
+        });
+    };
+
+    if (checkImagesLoaded()) {
+        observeElementsWithDelay();
+    } else {
+        // Listen for the load event on each image, then check again
+        Array.from(images).forEach(img => {
+            img.addEventListener('load', () => {
+                if (checkImagesLoaded()) {
+                    observeElementsWithDelay();
+                }
+            });
+            img.addEventListener('error', () => {
+                if (checkImagesLoaded()) {
+                    observeElementsWithDelay();
+                }
+            });
         });
     }
 });
