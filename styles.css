@@ -651,3 +651,40 @@ body {
         max-width: 100%; /* Ensure it takes full width */
     }
 }
+
+.content-item {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Slightly translate downwards */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+    margin-bottom: 2rem; /* Spacing between items */
+}
+
+.content-item img {
+    width: 100%; /* Adjust as necessary */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any inline behavior */
+}
+
+.content-item p {
+    color: var(--text-color); /* Use your theme color */
+    text-align: justify; /* Or center, based on preference */
+}
+
+/* Initially hide and position the animatable elements */
+.animatable {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* You can add this class in your HTML or dynamically via JavaScript */
+.article-image, .text-next-to-image, p, h2 {
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0px);
+}

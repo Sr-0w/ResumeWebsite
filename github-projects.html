@@ -48,10 +48,29 @@
         <p>The 'GitHub Projects' page is a window into my journey as a coder. Each project, whether big or small, has contributed to my growth and understanding of technology. I invite you to explore my repository and follow my progress as I continue to develop new skills and projects.</p>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Adds a class that triggers the animation
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the target is visible
+            });
+
+            // Select all elements that need the animation
+            const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
+            elements.forEach(element => {
+                observer.observe(element); // Observe each selected element
+            });
+        });
+    </script>
+
     <div class="footer">
         <p>© 2024 by Robin Snyders. All rights reserved.</p>
     </div>
-    
-    <script src="script.js"></script>
 </body>
 </html>
