@@ -5,7 +5,6 @@ const https = require('https');
 const fs = require('fs');
 const nodemailer = require("nodemailer");
 const axios = require('axios');
-const stack = require('stack');
 
 const app = express();
 const HTTP_PORT = 80;
