@@ -1,10 +1,4 @@
-*,
-::before,
-:after {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box
-}
+
 
 #particles {
 	width: 100%;
@@ -596,32 +590,52 @@ body {
     width: 100%;
 }
 
-.article-image.aspect-16-9::before {
-    content: '';
+.aspect-ratio {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%);
+    background-size: 400% 100%; /* Increase the size for a smoother transition */
+    animation: gradientShift 8s linear infinite; /* Slower animation for subtlety */
+}
+
+
+/* Placeholder for 16:9 aspect ratio */
+.aspect-16-9::before {
+    content: "";
     display: block;
-    padding-top: 56.25%; /* 100 * (9 / 16) = 56.25% */
-    background: #3b3b3b; /* Placeholder color */
+    padding-top: 56.25%; /* (9 / 16) * 100% */
+}
+
+/* Placeholder for 1:1 aspect ratio */
+.aspect-1-1::before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* (1 / 1) * 100% */
+}
+
+/* Styling for img to position it correctly inside the aspect ratio div */
+.aspect-ratio img {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Adjust this as necessary to fit your design */
 }
 
-.article-image.aspect-1-1::before {
-    content: '';
-    display: block;
-    padding-top: 100%; /* 100 * (1 / 1) = 100% */
-    background: #3b3b3b; /* Placeholder color */
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
+@keyframes gradientShift {
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: -100% 50%; /* Extend the motion range for smoother animation */
+    }
 }
 
+
+
+  
+  
 
 /* Reset float for small screens and ensure content flows naturally */
 @media (max-width: 768px) {
