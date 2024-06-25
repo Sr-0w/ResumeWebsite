@@ -53,8 +53,29 @@ app.use((req, res, next) => {
 // Serve static files
 app.use(express.static(__dirname));
 
+//Articles
 app.get('/fujitsu-server', (req, res) => {
-    res.sendFile(path.join(__dirname, 'server.html'));
+    res.sendFile(path.join(__dirname, 'fujitsu-server.html'));
+});
+
+app.get('/homelab', (req, res) => {
+    res.sendFile(path.join(__dirname, 'homelab.html'));
+});
+
+app.get('/3D-printer', (req, res) => {
+    res.sendFile(path.join(__dirname, '3D-printer.html'));
+});
+
+app.get('/ESP32', (req, res) => {
+    res.sendFile(path.join(__dirname, 'ESP32.html'));
+});
+
+app.get('/this-website', (req, res) => {
+    res.sendFile(path.join(__dirname, 'this-website.html'));
+});
+
+app.get('/github-projects', (req, res) => {
+    res.sendFile(path.join(__dirname, 'github-projects.html'));
 });
 
 // Route to serve the PDF file and send email notification
