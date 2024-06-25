@@ -631,7 +631,6 @@ body {
     width: 100%;
     height: auto;
     display: block; /* Ensures that the image does not have extra space below (inline-block default behavior) */
-    aspect-ratio: 16 / 9; /* Adjust based on typical image aspect ratio */
 }
 
 
