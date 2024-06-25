@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Sélectionnez toutes les cartes dans le conteneur observé
                 const items = entry.target.querySelectorAll('.project-item');
                 items.forEach((item, index) => {
-                    const delay = index * 500; // Décalage incrémentiel
+                    const delay = index * 200; // Décalage incrémentiel
                     item.style.transitionDelay = `${delay}ms`;
                     item.style.opacity = 1;
                     item.style.transform = "translateY(0)";
