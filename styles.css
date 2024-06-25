@@ -725,15 +725,3 @@ body {
     opacity: 1;
     transform: translateY(0px);
 }
-
-.article-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-	height: 550px;
-    background: #3b3b3b; /* Placeholder color or use a small blurred image as background-image */
-    z-index: -1;
-}
