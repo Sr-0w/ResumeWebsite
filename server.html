@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin Snyders</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>  
+    <div class="construction-banner">
+        <div class="banner-content">
+            <p>WEBSITE UNDER CONSTRUCTION</p>
+        </div>
+    </div>
+    
+    <!-- Projects Section -->
+    <div class="projects-section" id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <!-- Example Project Item with background image -->
+            <div class="project-item" style="background-image: url('project-image-1.jpg');">
+                <div class="project-content">
+                    <h3>Old Server Repurposed</h3>
+                    <p>I bought an old Fujitsu TX2540 M1</p>
+                    <button class="cards-buttons">Learn More</button>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-item" style="background-image: url('project-image-2.jpg');">
+                <div class="project-content">
+                    <h3>HomeLab</h3>
+                    <p>I made a custom network bay at home</p>
+                    <button class="cards-buttons">Learn More</button>
+                </div>
+            </div>
+            <div class="project-item" style="background-image: url('project-image-3.jpg');">
+                <div class="project-content">
+                    <h3>3D Printer</h3>
+                    <p>I own and run a 3D printer</p>
+                    <button class="cards-buttons">Learn More</button>
+                </div>
+            </div>
+            <div class="project-item" style="background-image: url('project-image-4.jpg');">
+                <div class="project-content">
+                    <h3>ESP32 Wiring and Programming</h3>
+                    <p>I made custom smart lights</p>
+                    <button class="cards-buttons">Learn More</button>
+                </div>
+            </div>
+            <div class="project-item" style="background-image: url('project-image-5.jpg');">
+                <div class="project-content">
+                    <h3>This Website</h3>
+                    <p>I built this portfolio website to feature my projects and skills transition</p>
+                    <button class="cards-buttons">Learn More</button>
+                </div>
+            </div>
+            <div class="project-item" style="background-image: url('project-image-6.jpg');">
+                <div class="project-content">
+                    <h3>GitHub Projects</h3>
+                    <p>My GitHub repository with projects reflecting my journey into coding</p>
+                    <button class="cards-buttons">Learn More</button>
+                </div>
+            </div>
+            <!-- More projects can be added here -->
+        </div>
+    </div>
+
+<!-- Scripts -->
+<script src="particles.js"></script>
+<script src="particles-custom.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Sélectionnez toutes les cartes dans le conteneur observé
+                const items = entry.target.querySelectorAll('.project-item');
+                items.forEach((item, index) => {
+                    const delay = index * 500; // Décalage incrémentiel
+                    item.style.transitionDelay = `${delay}ms`;
+                    item.style.opacity = 1;
+                    item.style.transform = "translateY(0)";
+                });
+            }
+        });
+    }, {
+        rootMargin: '0px',
+        threshold: 0.1
+    });
+
+    // Observer chaque 'row' ou 'projects-grid' si c'est le conteneur global
+    document.querySelectorAll('.projects-grid').forEach(container => {
+        observer.observe(container);
+    });
+});
+
+</script>
+
+        
+</body>
+</html>
