@@ -161,4 +161,67 @@ const httpsOptions = {
 
 const server = https.createServer(httpsOptions, app).listen(HTTPS_PORT, () => {
     console.log(`Server is running on https://localhost:${HTTPS_PORT}`);
+    
+    // Send server start notification email
+    sendServerStartEmail();
 });
+
+function sendServerStartEmail() {
+    const startTime = new Date();
+    const formatter = new Intl.DateTimeFormat('fr-FR', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    });
+    const formattedStartTime = formatter.format(startTime);
+
+    fs.readFile(path.join(__dirname, 'email.html'), 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading the email template file!', err);
+            return;
+        }
+
+        let htmlContent = data
+            .replace('<h1>Someone downloaded the resume ! 🎉</h1>', '<h1>Server has started ! 🚀</h1>')
+            .replace('${realIp}', getServerIP())
+            .replace('${formattedRequestTime}', formattedStartTime)
+            .replace('${location.city}, ${location.region}, ${location.country}', 'Server Location')
+            .replace('${location.org}', 'Your Organization')
+            .replace('${acceptedLanguages}', 'N/A')
+            .replace('${userAgent}', `Node.js ${process.version} on ${process.platform}`)
+            .replace('<p>It was downloaded by IP address', '<p>Server started with IP address');
+
+        const mailOptions = {
+            from: 'resumewebsitenotice@gmail.com',
+            to: 'robin@snyders.xyz',
+            subject: 'Server Start Notification',
+            html: htmlContent
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.log('Error sending server start email:', error);
+            } else {
+                console.log('Server start email sent:', info.response);
+            }
+        });
+    });
+}
+
+function getServerIP() {
+    const interfaces = require('os').networkInterfaces();
+    for (const devName in interfaces) {
+        const iface = interfaces[devName];
+        for (let i = 0; i < iface.length; i++) {
+            const alias = iface[i];
+            if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+                return alias.address;
+            }
+        }
+    }
+    return '0.0.0.0';
+}
