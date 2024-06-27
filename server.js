@@ -187,13 +187,12 @@ function sendServerStartEmail() {
 
         let htmlContent = data
             .replace('<h1>Someone downloaded the resume ! 🎉</h1>', '<h1>Server has started ! 🚀</h1>')
-            .replace('${realIp}', getServerIP())
-            .replace('${formattedRequestTime}', formattedStartTime)
-            .replace('${location.city}, ${location.region}, ${location.country}', 'Server Location')
-            .replace('${location.org}', 'Your Organization')
-            .replace('${acceptedLanguages}', 'N/A')
-            .replace('${userAgent}', `Node.js ${process.version} on ${process.platform}`)
-            .replace('<p>It was downloaded by IP address', '<p>Server started with IP address');
+            .replace('<p>It was downloaded by IP address <strong>${realIp}</strong></p>', `<p>Server started with IP address <strong>${getServerIP()}</strong></p>`)
+            .replace('<p>The request was made at <strong>${formattedRequestTime}</strong></p>', `<p>Server started at <strong>${formattedStartTime}</strong></p>`)
+            .replace('<p>The estimated location is <strong>${location.city}, ${location.region}, ${location.country}</strong></p>', '')
+            .replace('<p> The possible organization assiciated with this IP might be <strong>${location.org}</strong></p>', '')
+            .replace('<p>The accepted languages are <strong>${acceptedLanguages}</strong></p>', '')
+            .replace('<p>The user agent is <strong>${userAgent}</strong></p>', '');
 
         const mailOptions = {
             from: 'resumewebsitenotice@gmail.com',
