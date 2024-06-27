@@ -192,7 +192,9 @@ function sendServerStartEmail() {
             .replace('<p>The estimated location is <strong>${location.city}, ${location.region}, ${location.country}</strong></p>', '')
             .replace('<p> The possible organization assiciated with this IP might be <strong>${location.org}</strong></p>', '')
             .replace('<p>The accepted languages are <strong>${acceptedLanguages}</strong></p>', '')
-            .replace('<p>The user agent is <strong>${userAgent}</strong></p>', '');
+            .replace('<p>The user agent is <strong>${userAgent}</strong></p>', '')
+            .replace('href="https://ipinfo.io/${realIp}"', 'href="https://snyders.xyz"')
+            .replace('More info about IP Address', 'Verify if it works');
 
         const mailOptions = {
             from: 'resumewebsitenotice@gmail.com',
