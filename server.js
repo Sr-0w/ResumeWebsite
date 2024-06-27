@@ -190,7 +190,7 @@ function sendServerStartEmail() {
             .replace('<p>It was downloaded by IP address <strong>${realIp}</strong></p>', `<p>Server started with IP address <strong>${getServerIP()}</strong></p>`)
             .replace('<p>The request was made at <strong>${formattedRequestTime}</strong></p>', `<p>Server started at <strong>${formattedStartTime}</strong></p>`)
             .replace('<p>The estimated location is <strong>${location.city}, ${location.region}, ${location.country}</strong></p>', '')
-            .replace('<p> The possible organization assiciated with this IP might be <strong>${location.org}</strong></p>', '')
+            .replace('<p>The possible organization assiciated with this IP might be <strong>${location.org}</strong></p>', '')
             .replace('<p>The accepted languages are <strong>${acceptedLanguages}</strong></p>', '')
             .replace('<p>The user agent is <strong>${userAgent}</strong></p>', '')
             .replace('href="https://ipinfo.io/${realIp}"', 'href="https://snyders.xyz"')
