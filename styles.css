@@ -754,3 +754,9 @@ body {
 .back-button-img:hover {
 	transform: scale(1.2); /* Scale up the image a bit */
 }
+
+.forbidden-message {
+    text-align: center;
+    color: #ff0000; /* or any color that fits your design */
+    margin-top: 20px;
+}

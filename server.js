@@ -44,13 +44,25 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+const path = require('path');
+const fs = require('fs');
+
 // Middleware to deny access to sensitive files
 const denySensitiveFiles = (req, res, next) => {
     const sensitiveFiles = ['key.pem', 'cert.pem'];
     if (sensitiveFiles.some(file => req.path.includes(file))) {
-        return res.status(403).send('Access Forbidden');
+        const forbiddenPath = path.join(__dirname, 'forbidden.html');
+        
+        fs.readFile(forbiddenPath, 'utf8', (err, data) => {
+            if (err) {
+                console.error('Error reading forbidden.html:', err);
+                return res.status(403).send('Access Forbidden');
+            }
+            res.status(403).contentType('text/html').send(data);
+        });
+    } else {
+        next();
     }
-    next();
 };
 
 // Middleware to log all requests
