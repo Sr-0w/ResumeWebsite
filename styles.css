@@ -340,8 +340,8 @@ body {
 .projects-section {
     color: var(--text-color);
     text-align: center;
-    padding: 3rem;
     background-color: var(--bg-color-main);
+    padding-bottom: 3rem;
     /* Modern scroll snap behavior */
     scroll-snap-align: start;
 	margin-top: 100vh; /* This pushes the section down by 100% of the viewport height */
@@ -500,7 +500,16 @@ body {
 	z-index: 999999;
 }
 
+.sections-titles {
+    text-align: center;
+    background: var(--bg-color-main);
+    color: var(--text-color);
+}
 
+.sections-titles h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
 
 
 /* ARTICLE PAGE */
