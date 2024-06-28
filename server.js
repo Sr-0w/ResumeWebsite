@@ -44,9 +44,6 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-const path = require('path');
-const fs = require('fs');
-
 // Middleware to deny access to sensitive files
 const denySensitiveFiles = (req, res, next) => {
     const sensitiveFiles = ['key.pem', 'cert.pem'];
