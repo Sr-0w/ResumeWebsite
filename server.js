@@ -44,23 +44,11 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-// Middleware to deny access to sensitive files
-const denySensitiveFiles = (req, res, next) => {
-    const sensitiveFiles = ['key.pem', 'cert.pem'];
-    if (sensitiveFiles.some(file => req.path.includes(file))) {
-        return res.status(403).send('Access Forbidden');
-    }
-    next();
-};
-
 // Middleware to log all requests
 app.use((req, res, next) => {
     console.log(`${new Date().toISOString()} - ${req.method} ${req.originalUrl} - ${req.realIp}`);
     next();
 });
-
-// Apply middleware to deny access to sensitive files
-app.use(denySensitiveFiles);
 
 // Serve static files
 app.use(express.static(__dirname));
@@ -167,8 +155,8 @@ app.get('/download-resume', (req, res) => {
 });
 
 const httpsOptions = {
-    cert: fs.readFileSync(path.join(__dirname, 'ssl', 'cert.pem')),
-    key: fs.readFileSync(path.join(__dirname, 'ssl', 'key.pem'))
+    cert: fs.readFileSync(path.join(__dirname, 'cert.pem')),
+    key: fs.readFileSync(path.join(__dirname, 'key.pem'))
 };
 
 const server = https.createServer(httpsOptions, app).listen(HTTPS_PORT, () => {
