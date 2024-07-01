@@ -14,27 +14,25 @@
         </div>
     </div>
 
-    <div class="neon-glow"></div> <!-- Add this div for the neon glow effect -->
+    <div class="neon-glow"></div> 
 
     <canvas id="particles"></canvas>
-    <div class="main-content">
-        <div class="header-content"> <!-- Create a container for the header content -->
-            <div class="header-wrapper">
-                <h1>Aspiring<br/>Network Engineer</h1>
-                <h2>Robin Snyders</h2>
-                <button class="download-resume-button" onclick="location.href='/download-resume'">Download my resume</button>
-            </div>
-            
-            <div class="scroll-down">
-                <img src="images/line-angle-down-icon.svg" alt="Scroll Down">
-            </div>
-        </div>
 
 
-        <div class="image-container"> <!-- Create a container for the image -->
-            <img src="images/image.png" id="centered-image" alt="Placeholder Image">
+    <div class="header-content"> 
+        <div class="header-wrapper">
+            <h1>Aspiring<br/>Network Engineer</h1>
+            <h2>Robin Snyders</h2>
+            <button class="download-resume-button" onclick="location.href='/download-resume'">Download my resume</button>
         </div>
-        
+        <img src="images/image.png" id="centered-image" alt="Placeholder Image"></img>
+    </div>
+
+
+
+    <div class="scroll-down">
+        <p class="visible">Scroll to see my projects and more !</p>
+        <img src="images/line-angle-down-icon.svg" alt="Scroll Down">
     </div>
 
     <!-- The particles.js canvas will be positioned under the wrapper -->
@@ -95,7 +93,7 @@
 
     <div class="about-section">
         <div class="about-box">
-            
+
             <div class="element1">
                 <h1>ABOUT ME</h1>
             </div>
@@ -114,9 +112,12 @@
     <div class="footer">
         <p class="visible">© 2024 by Robin Snyders. All rights reserved.</p>
     </div>
+
 <!-- Scripts -->
 <script src="particles.js"></script>
 <script src="particles-custom.js"></script>
+<script src="scroll-animation.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
@@ -144,8 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 </script>
-<script src="scroll-animation.js"></script>
 
-        
 </body>
 </html>
