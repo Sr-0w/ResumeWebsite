@@ -232,7 +232,7 @@ h6 {
 }
 
 body {
-	background-color: #000;
+	background-color: #000; 
 	font-family: Montserrat, sans-serif;
 }
 
@@ -297,8 +297,6 @@ body {
         margin: 0; /* Reset default margins */
         padding: 0; /* Reset default padding */
         bottom: 30px;
-        display: flex;
-        flex-direction: column;
         justify-content: space-between; /* Space between the image and the text */
     }
 
@@ -340,7 +338,7 @@ body {
 .projects-section {
     color: var(--text-color);
     text-align: center;
-    background-color: var(--bg-color-main);
+    /* round-color: var(--bg-color-main); */
     padding-bottom: 3rem;
     /* Modern scroll snap behavior */
     scroll-snap-align: start;
@@ -368,7 +366,7 @@ body {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--grid-gap);
+    gap: 50px;
     padding: 0 1.25rem;
     max-width: var(--max-container-width);
     margin: auto;
@@ -384,12 +382,17 @@ body {
     background-size: auto 100%;  /* Scales the image to cover the height fully */
     background-position: center;  /* Centers the background image */
     height: 400px;  /* Fixed height; adjust based on your design needs */
-    width: 100%;  /* Ensures the div takes up the full width of its container */
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     opacity: 0; /* Initially hidden */
     transform: translateY(20px); /* Slightly translate downwards */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 	filter: brightness(100%); /* Default brightness */
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .project-content {
@@ -403,7 +406,7 @@ body {
     justify-content: space-between;  /* Distributes space between items inside the content */
     align-items: center;  /* Center aligns the content items horizontally */
     padding: 20px;
-    background: rgba(0, 0, 0, 0.2);  /* Optional: adds a semi-transparent overlay to enhance text readability */
+    /* round: rgba(0, 0, 0, 0.2); */
     color: white;  /* Ensures text color is white for better visibility */
     z-index: 2;  /* Ensures the content is on top of the background */
 }
@@ -501,14 +504,17 @@ body {
 }
 
 .sections-titles {
-    text-align: center;
-    background: var(--bg-color-main);
-    color: var(--text-color);
+    width: 100%; /* Ensures this container also spans full width if it wraps the title */
+    text-align: center; /* Center-aligns any text directly within this container */
 }
+
 
 .sections-titles h1 {
     font-size: 2.5em;
     margin-bottom: 0.5em;
+    text-align: center; /* Ensures the title is centered */
+    width: 100%; /* Ensures the title container spans the full width */
+    margin-bottom: 2rem;
 }
 
 
@@ -519,7 +525,7 @@ body {
 .article-header {
     text-align: center;
     padding: 50px 20px;
-    background: var(--bg-color-main);
+    /* background: var(--bg-color-main); */
     color: var(--text-color);
 }
 
@@ -552,6 +558,7 @@ body {
     padding: 20px;
     background-color: var(--bg-color-card);
     color: var(--text-color);
+    transition: all 0.3s ease;
 }
 
 @media only screen and (max-width: 768px) {
@@ -768,4 +775,76 @@ body {
     text-align: center;
     color: #ff0000; /* or any color that fits your design */
     margin-top: 20px;
+}
+
+/* Blue Neon Glow Effect */
+.neon-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(93, 0, 255, 0.25), rgba(0, 0, 0, 0));
+    pointer-events: none; /* Ensures it doesn't interfere with user interactions */
+    z-index: -999;
+}
+
+.about-section {
+    position: relative; /* If it's not already positioned relatively */
+    width: 80%;
+    max-width: var(--max-container-width);
+    text-align: center; /* Centers the content horizontally */
+    color: #fff;
+    margin: auto;
+    min-height: 100vh;    
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.about-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    min-width: 100px;
+    width: 100%;
+}
+
+.element1{
+    
+    width: 100%;
+    margin: auto;
+}
+
+.element2{
+    width: 50%;
+    margin: auto;
+}
+
+.element3{
+    width: 50%;
+    margin: auto;
+}
+
+@media (max-width: 1100px) {
+
+    .element1{
+        width: 100%;
+        margin: auto;
+    }
+    
+    .element2{
+        width: 100%;
+        margin: auto;
+    }
+    
+    .element3{
+        width: 100%;
+        margin: auto;
+    }
+
+
 }
