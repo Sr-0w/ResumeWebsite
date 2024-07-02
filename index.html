@@ -8,18 +8,44 @@
 </head>
 <body>  
 
-    <div class="construction-banner">
-        <div class="banner-content">
-            <p class="visible">WEBSITE UNDER CONSTRUCTION</p>
+    <!-- <div class="neon-glow"></div> -->
+
+
+
+    <div class="navbar">
+        <nav>
+            <a class="nav-buttons-selected" href="#home">Home</a>
+            <a class="nav-buttons" href="#projects">Porjects</a>
+            <a class="nav-buttons" href="#about">About Me</a>         
+            <a class="nav-buttons" href="#contact">Contact Me</a>
+        </nav>
+    </div>
+
+    <div class="hamburger-icon">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+    <div class="mobile-nav">
+        <div class="hamburger-menu">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About Me</a>         
+            <a href="#contact">Contact Me</a>
         </div>
     </div>
 
-    <div class="neon-glow"></div> 
+    <!-- <div class="construction-banner">
+        <div class="banner-content">
+            <p class="visible">WEBSITE UNDER CONSTRUCTION</p>
+        </div>
+    </div> -->
 
     <canvas id="particles"></canvas>
 
 
-    <div class="header-content"> 
+    <div id="home" class="header-content"> 
         <div class="header-wrapper">
             <h1>Aspiring<br/>Network Engineer</h1>
             <h2>Robin Snyders</h2>
@@ -28,11 +54,9 @@
         <img src="images/image.png" id="centered-image" alt="Placeholder Image"></img>
     </div>
 
-
-
     <div class="scroll-down">
         <p class="visible">Scroll to see my projects and more !</p>
-        <img src="images/line-angle-down-icon.svg" alt="Scroll Down">
+        <a href="#projects"><img src="images/line-angle-down-icon.svg" alt="Scroll Down"/></a>
     </div>
 
     <!-- The particles.js canvas will be positioned under the wrapper -->
@@ -91,7 +115,7 @@
         </div>
     </div>
 
-    <div class="about-section">
+    <div id="about" class="about-section">
         <div class="about-box">
 
             <div class="element1">
@@ -103,7 +127,7 @@
                 <p>After several years in sales, I realized that my true passion lies in technology and problem-solving, particularly in the field of network engineering. The logical, hands-on approach and the constantly evolving nature of the tech field drew me to pursue a certification in CompTIA Network+.</p>
             </div>
 
-            <img class="element3" src="images/undraw_heavy_box_agqi.svg" alt="Image by vectorjuice on Freepik"/>
+            <img class="element3" src="images/test.png"/>
 
         </div>
     </div>
@@ -117,6 +141,8 @@
 <script src="particles.js"></script>
 <script src="particles-custom.js"></script>
 <script src="scroll-animation.js"></script>
+<script src="navbar.js"></script>
+<script src="hamburger.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -143,7 +169,6 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(container);
     });
 });
-
 </script>
 
 </body>

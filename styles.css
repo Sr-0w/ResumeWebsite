@@ -4,6 +4,7 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
+    background-color: #000;
     z-index: -1; /* Make sure it's behind your content, adjust this value if needed */
 }
 
@@ -680,7 +682,7 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(93, 0, 255, 0.25), rgba(0, 0, 0, 0));
+    background: radial-gradient(circle at center, rgba(47, 0, 255, 0.25), rgba(0, 0, 0, 0));
     pointer-events: none; /* Ensures it doesn't interfere with user interactions */
     z-index: -999;
 }
@@ -723,6 +725,7 @@ h6 {
 .element3{
     width: 50%;
     margin: auto;
+    border-radius: 1rem;
 }
 
 @media (max-width: 1100px) {
@@ -743,4 +746,223 @@ h6 {
     }
 
 
+}
+
+.navbar {
+    display: flex;
+    width: 1000px;
+    height: 50px;
+    /* From https://css.glass */
+    background: rgba(70, 70, 70, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 99999;
+}
+
+nav{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    height: auto;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+ }
+
+ .nav-buttons-selected {
+    /* background-color: white; */
+    color: black;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    width: calc(100% - 40px); /* Account for padding */
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 8pt;
+    letter-spacing: 4pt;
+	border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add transform to the transition */
+	margin: auto; /* Push the button to the bottom of the container */
+    width: calc(100% - 40px); /* Adjust width considering padding */
+    text-decoration: none;
+}
+
+.nav-buttons-selected:hover {
+    transform: scale(1.05);
+}
+
+.nav-buttons {    
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-shadow:
+    0 0 6px rgba(75, 75, 75, 0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(119, 119, 119, 0.52),
+    0 0 21px rgba(77, 77, 77, 0.92),
+    0 0 34px rgba(25, 25, 25, 0.78),
+    0 0 54px rgba(0, 0, 0, 0.92);
+    padding: 10px 15px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    width: calc(100% - 40px); /* Account for padding */
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 8pt;
+    letter-spacing: 4pt;
+	border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add transform to the transition */
+	margin: auto; /* Push the button to the bottom of the container */
+    width: calc(100% - 40px); /* Adjust width considering padding */
+    text-decoration: none;
+}
+
+.nav-buttons:hover {
+    color: black;
+	border-radius: 20px;
+
+}
+
+.nav-pill {
+    position: absolute;
+    top: 50%; /* Position from the top */
+    height: 40px; /* Fixed height */
+    border-radius: 20px; /* Adjust as necessary to match your nav item styling */
+    background-color: white; /* Background color of the pill */
+    transition: left 0.3s, width 0.3s; /* Animate the changes in position and width */
+    z-index: -1; /* Ensure it doesn't overlay the text */
+    transform: translateY(-10%); /* Center vertically */
+}
+
+/* Styles for the hamburger icon */
+.hamburger-icon {
+    display: none; /* Initially hidden */
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 101;
+    padding: 5px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* From https://css.glass */
+    background: rgba(70, 70, 70, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hamburger-icon div {
+    height: 3px;
+    width: 30px;
+    background-color: white;
+    border-radius: 10px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Styles when the menu is active */
+.hamburger-icon.active div:nth-child(1) {
+    transform: rotate(45deg) translate(12px, 12px);
+}
+
+.hamburger-icon.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Modify the mobile-nav for animation */
+.mobile-nav {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* From https://css.glass */
+    background: rgba(70, 70, 70, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    z-index: 100;
+    text-align: center;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.mobile-nav a{
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-shadow:
+    0 0 6px rgba(75, 75, 75, 0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(119, 119, 119, 0.52),
+    0 0 21px rgba(77, 77, 77, 0.92),
+    0 0 34px rgba(25, 25, 25, 0.78),
+    0 0 54px rgba(0, 0, 0, 0.92);
+    padding: 10px 15px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    width: calc(100% - 40px); /* Account for padding */
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 8pt;
+    letter-spacing: 4pt;
+	border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add transform to the transition */
+	margin: auto; /* Push the button to the bottom of the container */
+    width: calc(100% - 40px); /* Adjust width considering padding */
+    text-decoration: none;
+}
+
+.mobile-nav.visible {
+    transform: translateX(0);
+}
+
+.hamburger-menu {
+    padding-top: 60px; /* Make space for the hamburger icon */
+    /* From https://css.glass */
+    background: rgba(70, 70, 70, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 1000px) {
+    .hamburger-icon {
+        display: flex; /* Show only under 1000px */
+    }
+    .navbar {
+        display: none;
+    }
+    .mobile-nav {
+        display: block;
+    }
 }
