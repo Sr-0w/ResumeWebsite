@@ -138,6 +138,12 @@ h6 {
 
 .download-resume-button:hover {
     background-color: rgba(0, 0, 0, 0);
+    background: rgba(70, 70, 70, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
 	border-radius: 1rem;
     transform: scale(1.05); /* Slightly enlarge the button */
@@ -340,7 +346,12 @@ h6 {
 }
 
 .cards-buttons:hover {
-    background-color: rgba(0, 0, 0, 0);
+    background: rgba(70, 70, 70, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: white;
     transform: scale(1.05); /* Slightly enlarge the button */
 	border-radius: 1rem;
