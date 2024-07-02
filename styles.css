@@ -344,6 +344,7 @@ h6 {
     transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Add transform to the transition */
 	margin-top: auto; /* Push the button to the bottom of the container */
     width: calc(100% - 40px); /* Adjust width considering padding */
+    text-decoration: none;
 }
 
 .cards-buttons:hover {

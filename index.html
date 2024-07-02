@@ -129,6 +129,8 @@
             <div class="element2">
                 <h2>Why I'm Transitioning</h2>
                 <p>After several years in sales, I realized that my true passion lies in technology and problem-solving, particularly in the field of network engineering. The logical, hands-on approach and the constantly evolving nature of the tech field drew me to pursue a certification in CompTIA Network+.</p>
+                <button class="cards-buttons" data-cal-link="robin.snyders/one-hour-meeting" data-cal-namespace="" data-cal-config='{"layout":"month_view"}'>Let's book a meeting</button>
+
             </div>
 
             <img class="element3" src="images/test.png"/>
@@ -147,6 +149,19 @@
 <script src="scroll-animation.js"></script>
 <script src="navbar.js"></script>
 <script src="hamburger.js"></script>
+
+<script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init",  {origin:"https://cal.com"});
+  
+    
+    // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+    // `data-cal-link="robin.snyders/one-hour-meeting"`
+    // data-cal-namespace=""
+    // `data-cal-config='{"layout":"month_view"}'`
+  
+    Cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
