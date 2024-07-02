@@ -365,7 +365,7 @@ h6 {
     z-index: 3; /* Ensure it's above other content */
 	fill: rgb(255, 255, 255);
     cursor: pointer;
-
+    z-index: 999;
     width: 100%;
 }
 
@@ -441,7 +441,7 @@ h6 {
 
 .article-header {
     text-align: center;
-    padding: 50px 20px;
+    padding: 80px 20px;
     /* background: var(--bg-color-main); */
     color: var(--text-color);
 }
@@ -674,6 +674,7 @@ h6 {
 	position: fixed;
 	top: 20px;
 	left: 20px;
+    z-index: 999;
 }
 /* TEST */
 .back-button-img {
@@ -682,6 +683,14 @@ h6 {
 	height: 40px;
 	cursor: pointer;
 	transition: transform 0.3s;
+    padding: 10px;
+    /* From https://css.glass */
+    background: rgba(70, 70, 70, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 	}
 
 .back-button-img:hover {
