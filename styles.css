@@ -8,8 +8,17 @@ html, body {
 }
 
 body {
-	background-color: #000; 
 	font-family: Montserrat, sans-serif;
+}
+
+.background{
+    background-image: url(images/background.png);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    z-index: -10;
+    width: 100%;
+    height: 100%;
+    position: fixed;
 }
 
 #particles {
@@ -18,7 +27,6 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #000;
     z-index: -1; /* Make sure it's behind your content, adjust this value if needed */
 }
 
