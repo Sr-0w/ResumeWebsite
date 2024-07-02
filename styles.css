@@ -13,7 +13,7 @@ body {
 
 .background{
     /* background-image: url(images/background.png); */
-    background: linear-gradient(#212121, #4c4c4c);
+    background: linear-gradient(#212121, #727272);
     background-size: cover; 
     background-repeat: no-repeat;
     z-index: -10;
@@ -245,7 +245,7 @@ h6 {
     padding-bottom: 3rem;
     /* Modern scroll snap behavior */
     scroll-snap-align: start;
-	
+    padding-top: 80px;
 }
 
 .projects-section h2 {
