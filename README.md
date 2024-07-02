@@ -4,6 +4,8 @@ Welcome to the Resume Website Project! This project is designed to professionall
 
 ![Preview](https://i.imgur.com/cBQ1MFo.png)
 
+[https://snyders.xyz](<https://snyders.xyz>)
+
 
 ## Features 🚀
 
