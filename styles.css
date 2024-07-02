@@ -918,13 +918,6 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
-    /* From https://css.glass */
-    background: rgba(70, 70, 70, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
     z-index: 100;
     text-align: center;
     transform: translateX(-100%);
@@ -967,11 +960,12 @@ nav{
     padding-top: 60px; /* Make space for the hamburger icon */
     /* From https://css.glass */
     background: rgba(70, 70, 70, 0.2);
-    border-radius: 16px;
+    border-radius: 8px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: auto;
 }
 
 @media (max-width: 1000px) {
@@ -984,4 +978,8 @@ nav{
     .mobile-nav {
         display: block;
     }
+}
+
+.hamburger-menu hr{
+    opacity: 10%;
 }
