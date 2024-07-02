@@ -12,7 +12,8 @@ body {
 }
 
 .background{
-    background-image: url(images/background.png);
+    /* background-image: url(images/background.png); */
+    background: linear-gradient(#212121, #4c4c4c);
     background-size: cover; 
     background-repeat: no-repeat;
     z-index: -10;
