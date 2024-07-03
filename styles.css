@@ -15,8 +15,7 @@ body {
 .background{
     /* background-image: url(images/background.png); */
     /* background: linear-gradient(#212121, #727272); */
-    background: linear-gradient(115deg, #000000 0%, #00C508 55%, #000000 100%), linear-gradient(115deg, #0057FF 0%, #020077 100%), conic-gradient(from 110deg at -5% 35%, #000000 0deg, #FAFF00 360deg), conic-gradient(from 220deg at 30% 30%, #FF0000 0deg, #0000FF 220deg, #240060 360deg), conic-gradient(from 235deg at 60% 35%, #0089D7 0deg, #0000FF 180deg, #240060 360deg);
-    background-blend-mode: soft-light, soft-light, overlay, screen, normal;
+    background-image: radial-gradient(circle at 24% 23%, rgba(167, 167, 167,0.06) 0%, rgba(167, 167, 167,0.06) 25%,rgba(148, 148, 148,0.06) 25%, rgba(148, 148, 148,0.06) 50%,rgba(129, 129, 129,0.06) 50%, rgba(129, 129, 129,0.06) 75%,rgba(110, 110, 110,0.06) 75%, rgba(110, 110, 110,0.06) 100%),radial-gradient(circle at 58% 30%, rgba(14, 14, 14,0.06) 0%, rgba(14, 14, 14,0.06) 25%,rgba(60, 60, 60,0.06) 25%, rgba(60, 60, 60,0.06) 50%,rgba(107, 107, 107,0.06) 50%, rgba(107, 107, 107,0.06) 75%,rgba(153, 153, 153,0.06) 75%, rgba(153, 153, 153,0.06) 100%),radial-gradient(circle at 79% 53%, rgba(225, 225, 225,0.06) 0%, rgba(225, 225, 225,0.06) 25%,rgba(189, 189, 189,0.06) 25%, rgba(189, 189, 189,0.06) 50%,rgba(152, 152, 152,0.06) 50%, rgba(152, 152, 152,0.06) 75%,rgba(116, 116, 116,0.06) 75%, rgba(116, 116, 116,0.06) 100%),linear-gradient(221deg, rgb(0,0,0),rgb(0,0,0));
     /* background-size: cover; 
     background-repeat: no-repeat; */
     z-index: -10;
