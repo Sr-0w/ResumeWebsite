@@ -9,7 +9,7 @@ html, body {
 
 body {
 	font-family: Montserrat, sans-serif;
-    background-color: #000;
+    background-color: #141414;
 }
 
 .background{
@@ -21,7 +21,6 @@ body {
     z-index: -10;
     width: 100%;
     min-height: 100%;
-    
     position: absolute;
 }
 
@@ -783,7 +782,7 @@ h6 {
 
 .navbar {
     display: flex;
-    width: 1000px;
+    width: 800px;
     height: 50px;
     /* From https://css.glass */
     background: rgba(70, 70, 70, 0.2);
