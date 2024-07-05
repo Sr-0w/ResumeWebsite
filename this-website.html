@@ -27,45 +27,80 @@
 
 </head>
 <body>  
-    <div class="background"></div>
+    <div style="position: fixed;" class="background"></div>
 
     <div class="back-button">
         <img class="back-button-img" src="images/back-button.png" alt="Scroll Down" onclick="location.href='/'"></img>
     </div>
 
     <div class="article-header">
-        <h1>THIS WEBSITE</h1>
-        <p>I Built This Portfolio Website to Feature My Projects and Skills Transition</p>
+        <h1>Building My Resume Website</h1>
+        <p>How I built a resume website and its impact on my career</p>
     </div>
-
+    
     <div class="article-content">
         <div class="article-image full-width aspect-16-9">
-            <img src="images/website-setup.jpg" alt="Website Setup">
+            <img src="images/this-website.png" alt="This Website">
         </div>
-        <p>Creating this portfolio website has been a pivotal part of my journey as I transition from a career in sales to network engineering. This website showcases my projects, skills, and the progress I’ve made in acquiring new certifications like CompTIA Network+ and CCNA.</p>
-        
+        <p class="visible">Transitioning from a sales career to IT is an exciting opportunity to leverage my skills in a field I like since my younger age. This resume website project is hosted on AWS EC2 and secured with Cloudflare, showcases this transition and how it benefits my future career. This article details the project, including technical choices, the learning process, and why it's a great step for my career in IT.</p>
+    
+        <h2 class="visible">The Project</h2>
+        <p>It began with the goal of creating a personal resume website to showcase my skills, experiences, and projects. The website is hosted on an AWS EC2 instance, uses a custom domain name "snyders.xyz," and is secured with SSL certificates from Cloudflare. Here are the key steps involved:</p>
+    
         <div class="content-with-image">
             <div class="article-image side-by-side aspect-1-1">
-                <img src="images/building-website.jpg" alt="Building the Website">
+                <img src="images/building-website.png" alt="GitHub Setup">
             </div>
             <div class="text-next-to-image">
-                <h2>Project Initiation</h2>
-                <p>The project began with designing a layout that would effectively highlight my skills and projects. I chose a modern, responsive design to ensure the site looks great on all devices. The initial setup involved selecting the right tools and technologies to build the site.</p>
+                <h3>Developing the Website</h3>
+                
+                <p>I started by designing and developing the website using HTML, CSS, and JavaScript. The website includes sections for my professional experience, education, skills, and projects. I used a custom domain name "snyders.robin" and hosted it on AWS EC2, ensuring scalability and reliability. The website is fully responsive, adapting to various screen sizes and devices. This approach allowed me to gain a deep understanding of the foundational web technologies without relying on any CMS or frameworks.</p>
+ 
+                <p>The website's back-end is powered by Node.js, which allows me to use the Express framework to manage HTTP requests and responses. PM2, a production process manager for Node.js applications, keeps the application running and restarts it if it crashes. This ensures that the website remains available even in case of unexpected errors or server issues.</p>
+                 
+                <p>This project allowed me to demonstrate my skills in web development, server administration, and cloud computing. The experience gained from designing, developing, and deploying the website has been invaluable in preparing me for a career in IT.</p>            </div>
+        </div>
+    
+        <div class="content-with-image">
+            <div class="text-next-to-image">
+                <h3>Website Development</h3>
+                <p>The first step was designing and coding the website. Using pure HTML, CSS, and JavaScript, I created a responsive and visually appealing site. This approach ensured that I gained a deep understanding of the foundational web technologies <strong>without relying on any CMS or frameworks</strong>.</p>
+                <p>To host the website, I used the AWS Free Tier, which offers a year of free usage for new customers. I launched an EC2 instance, configured the security groups, and set up the necessary software (Node.js and PM2) to run the website.</p>
+                <p>I purchased the domain name "snyders.xyz" directly through Cloudflare. This setup allowed for easy DNS management and SSL certificate configuration, ensuring my website is secure and loads quickly.</p>
+
+            </div>
+            <div class="article-image side-by-side aspect-1-1">
+                <img src="images/project-coding.png" alt="GitHub Setup">
             </div>
         </div>
 
-        <h2>Challenges Faced</h2>
-        <p>One of the main challenges was learning web development basics while balancing my studies in network engineering. Integrating dynamic features and ensuring the site is both visually appealing and functional required a lot of research and experimentation.</p>
-        
-        <div class="article-image full-width aspect-16-9">
-            <img src="images/showcasing-projects.jpg" alt="Showcasing Projects">
-        </div>
-        <h2>Learning and Outcomes</h2>
-        <p>This project has significantly improved my understanding of web development and design principles. It has also provided a platform to document and share my progress in network engineering, helping me build a professional online presence.</p>
-        
-        <h2>Conclusion</h2>
-        <p>The 'Portfolio Website' project is a testament to my dedication to learning and growth. It not only highlights my past experiences in sales but also my current journey towards becoming a network engineer. Building this website has been a rewarding experience that bridges my skills from different fields.</p>
+        <h3>Hosting on AWS EC2</h3>
+        <p>Hosting the website on AWS EC2 involved several steps:</p>
+        <ul>
+            <li><strong>Creating an EC2 Instance:</strong> Using the AWS Management Console, I launched a new EC2 instance, choosing an Ubuntu Server AMI (Amazon Machine Image) from the free tier.</li>
+            <li><strong>Configuring Security Groups:</strong> I set up security groups to allow HTTP and HTTPS traffic to the instance.</li>
+            <li><strong>Setting Up the Server:</strong> I installed Node.js and PM2 to manage the web server. PM2 is a production process manager for Node.js applications, which keeps the application running and restarts it if it crashes.</li>
+        </ul>
+    
+        <h3>Domain Name Registration and Cloudflare Setup</h3>
+        <p>By purchasing the domain through Cloudflare, I streamlined the process of setting up DNS management and SSL certificates:</p>
+        <ul>
+            <li><strong>DNS Management:</strong> Cloudflare's platform made it simple to manage DNS records, ensuring my domain pointed correctly to my AWS EC2 instance.</li>
+            <li><strong>SSL Certificate:</strong> Cloudflare provides a free SSL certificate, which I configured to ensure all traffic to my site is encrypted.</li>
+            <li><strong>Performance Optimization:</strong> Cloudflare's CDN (Content Delivery Network) helps to reduce latency and improve load times for visitors around the globe.</li>
+        </ul>
+    
+        <h3>Why This Project Is Important for My Career</h3>
+        <p>This project is a significant step in my transition from sales to IT for several reasons:</p>
+        <ul>
+            <li><strong>Practical Experience:</strong> Building and hosting a website from scratch provided hands-on experience with web development, server administration, and cloud computing.</li>
+            <li><strong>Problem-Solving Skills:</strong> The project involved troubleshooting various issues, from server configurations to domain name settings. This honed my problem-solving abilities, which are essential in IT.</li>
+            <li><strong>Showcasing My Work:</strong> The resume website acts as a portfolio, demonstrating my technical skills and ability to manage a complete project lifecycle. It's a powerful tool to showcase what I can do.</li>
+            <li><strong>Learning and Growth:</strong> Throughout the project, I learned new technologies and best practices. This continuous learning mindset is crucial for success in the ever-evolving IT field.</li>
+            <li><strong>Professional Online Presence:</strong> Having a personalized website with a custom domain name gives me a professional online presence, making it easier for recruiters and hiring managers to find and connect with me.</li>
+        </ul>
     </div>
+    
 
     <div class="footer">
         <p class="visible">© 2024 by Robin Snyders. All rights reserved.</p>

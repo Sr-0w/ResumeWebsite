@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Select all elements that need the animation
-    const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2');
+    const elements = document.querySelectorAll('.article-image, .text-next-to-image, p, h2, li');
     
     // Function to observe element
     const observeElement = (element) => {
