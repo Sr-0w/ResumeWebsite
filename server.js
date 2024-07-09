@@ -119,7 +119,7 @@ app.get('/view-resume', (req, res) => {
         }
     }
 
-    let ipLocation = getIpLocation(req.realIp)
+    getIpLocation(req.realIp)
         .then(location => {
             let requestTime = new Date();
             let formatter = new Intl.DateTimeFormat('fr-FR', {
@@ -172,8 +172,9 @@ app.get('/view-resume', (req, res) => {
         })
         .catch(err => console.error('Error getting location', err));
 
-    res.sendFile(filePath, 'resume.pdf', { headers: { 'Content-Disposition': 'inline' } });
+    res.sendFile(filePath, { headers: { 'Content-Disposition': 'inline' } });
 });
+
 
 
 // Route to serve the PDF file and send email notification
