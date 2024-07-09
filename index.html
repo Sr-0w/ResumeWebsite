@@ -66,7 +66,7 @@
         <div class="header-wrapper">
             <h1>Aspiring<br/>Network Engineer</h1>
             <h2>Robin Snyders</h2>
-            <button class="download-resume-button" onclick="location.href='/view-resume'">Watch my resume</button>
+            <button class="download-resume-button">Watch my resume</button>
         </div>
         <img src="images/image.png" id="centered-image" alt="This is me"></img>
     </div>
@@ -160,6 +160,25 @@
 <script src="scroll-animation.js"></script>
 <script src="navbar.js"></script>
 <script src="hamburger.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const resumeButton = document.querySelector('.download-resume-button');
+
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    resumeButton.addEventListener('click', () => {
+        if (isMobile()) {
+            location.href = 'resume.pdf';
+        } else {
+            location.href = '/view-resume';
+        }
+    });
+});
+
+</script>
 
 <script type="text/javascript">
     (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
