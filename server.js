@@ -75,10 +75,6 @@ app.use(denySensitiveFiles);
 app.use(express.static(__dirname));
 
 //Articles
-app.get('/resume', (req, res) => {
-    res.sendFile(path.join(__dirname, 'resume.pdf'));
-});
-
 app.get('/fujitsu-server', (req, res) => {
     res.sendFile(path.join(__dirname, 'fujitsu-server.html'));
 });
@@ -106,6 +102,79 @@ app.get('/github-projects', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+
+app.get('/view-resume', (req, res) => {
+    const filePath = path.join(__dirname, 'resume.pdf');
+    console.log(`${new Date().toISOString()} - PDF viewed by ${req.realIp}`);
+
+    async function getIpLocation(ip) {
+        try {
+            const response = await axios.get(`http://ipinfo.io/${ip}/json`);
+            const data = response.data;
+            return data;
+        } catch (error) {
+            console.error('Error getting IP location:', error);
+            throw error;
+        }
+    }
+
+    let ipLocation = getIpLocation(req.realIp)
+        .then(location => {
+            let requestTime = new Date();
+            let formatter = new Intl.DateTimeFormat('fr-FR', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false,
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+            let formattedRequestTime = formatter.format(requestTime);
+            let userAgent = req.get('User-Agent');
+            let acceptedLanguages = req.get('Accept-Language');
+            let filePath = path.join(__dirname, 'email.html');
+
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) {
+                    console.error('Error reading the file!', err);
+                    return;
+                }
+
+                let htmlContent = data
+                    .replace('${realIp}', req.realIp)
+                    .replace('${formattedRequestTime}', formattedRequestTime)
+                    .replace('${location.city}', location.city)
+                    .replace('${location.region}', location.region)
+                    .replace('${location.country}', location.country)
+                    .replace('${location.org}', location.org)
+                    .replace('${acceptedLanguages}', acceptedLanguages)
+                    .replace('${userAgent}', userAgent);
+
+                // Send email notification
+                let mailOptions = {
+                    from: 'resumewebsitenotice@gmail.com',
+                    to: 'robin@snyders.xyz',
+                    subject: 'Resume Viewed Alert',
+                    html: htmlContent
+                };
+
+                transporter.sendMail(mailOptions, (error, info) => {
+                    if (error) {
+                        console.log('Error sending email:', error);
+                    } else {
+                        console.log('Email sent:', info.response);
+                    }
+                });
+            });
+
+        })
+        .catch(err => console.error('Error getting location', err));
+
+    res.sendFile(filePath, 'resume.pdf', { headers: { 'Content-Disposition': 'inline' } });
+});
+
 
 // Route to serve the PDF file and send email notification
 app.get('/download-resume', (req, res) => {
