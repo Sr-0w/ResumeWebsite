@@ -143,7 +143,8 @@ app.get('/view-resume', (req, res) => {
                 }
 
                 let htmlContent = data
-                    .replace('${realIp}', req.realIp)
+                    .replace('${realIp1}', req.realIp)
+                    .replace('${realIp2}', req.realIp)
                     .replace('${formattedRequestTime}', formattedRequestTime)
                     .replace('${location.city}', location.city)
                     .replace('${location.region}', location.region)
