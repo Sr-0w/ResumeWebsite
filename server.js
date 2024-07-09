@@ -44,6 +44,9 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+// Serve static files from a designated directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Middleware to serve forbidden.html for unknown routes
 app.use((req, res, next) => {
     const allowedPaths = [
@@ -55,20 +58,21 @@ app.use((req, res, next) => {
         '/this-website',
         '/github-projects',
         '/view-resume',
-        '/download-resume'
+        '/download-resume',
+        '/resume.pdf'  // Allow access to resume.pdf
     ];
 
-    const allowedExtensions = ['.js', '.pdf', '.css', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.otf', '.eot'];
+    // Allow static assets
+    const staticFileExtensions = ['.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.otf', '.eot', '.pdf'];
+    const isStaticAsset = staticFileExtensions.some(ext => req.path.endsWith(ext));
 
-    const isAllowedPath = allowedPaths.includes(req.path);
-    const isAllowedExtension = allowedExtensions.some(ext => req.path.endsWith(ext));
-
-    if (!isAllowedPath && !isAllowedExtension) {
+    if (!allowedPaths.includes(req.path) && !isStaticAsset) {
         res.status(403).sendFile(path.join(__dirname, 'forbidden.html'));
     } else {
         next();
     }
 });
+
 
 
 // Middleware to deny access to sensitive files

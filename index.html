@@ -163,21 +163,20 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-    const resumeButton = document.querySelector('.download-resume-button');
+        const resumeButton = document.querySelector('.download-resume-button');
 
-    function isMobile() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-
-    resumeButton.addEventListener('click', () => {
-        if (isMobile()) {
-            location.href = 'resume.pdf';
-        } else {
-            location.href = '/view-resume';
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
-    });
-});
 
+        resumeButton.addEventListener('click', () => {
+            if (isMobile()) {
+                location.href = '/resume.pdf';
+            } else {
+                location.href = '/view-resume';
+            }
+        });
+    });
 </script>
 
 <script type="text/javascript">
