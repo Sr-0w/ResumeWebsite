@@ -47,6 +47,9 @@ let transporter = nodemailer.createTransport({
 // Serve static files from a designated directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve static files from a designated directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Middleware to serve forbidden.html for unknown routes
 app.use((req, res, next) => {
     const allowedPaths = [
@@ -72,6 +75,7 @@ app.use((req, res, next) => {
         next();
     }
 });
+
 
 
 
@@ -133,6 +137,11 @@ app.get('/github-projects', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
+
+app.get('/view-resume', (req, res) => {
+    res.sendFile(path.join(__dirname, 'resume.html'));
+});
+
 
 
 app.get('/view-resume', (req, res) => {
