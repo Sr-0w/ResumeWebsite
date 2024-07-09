@@ -44,6 +44,28 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+// Middleware to serve forbidden.html for unknown routes
+app.use((req, res, next) => {
+    const allowedPaths = [
+        '/',
+        '/fujitsu-server',
+        '/homelab',
+        '/3D-printer',
+        '/ESP32',
+        '/this-website',
+        '/github-projects',
+        '/view-resume',
+        '/download-resume'
+    ];
+
+    if (!allowedPaths.includes(req.path)) {
+        res.status(403).sendFile(path.join(__dirname, 'forbidden.html'));
+    } else {
+        next();
+    }
+});
+
+
 // Middleware to deny access to sensitive files
 const denySensitiveFiles = (req, res, next) => {
     const sensitiveFiles = ['key.pem', 'cert.pem'];
