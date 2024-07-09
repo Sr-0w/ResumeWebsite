@@ -58,7 +58,7 @@ app.use((req, res, next) => {
         '/download-resume'
     ];
 
-    const allowedExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.otf', '.eot'];
+    const allowedExtensions = ['.js', '.pdf', '.css', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.otf', '.eot'];
 
     const isAllowedPath = allowedPaths.includes(req.path);
     const isAllowedExtension = allowedExtensions.some(ext => req.path.endsWith(ext));
