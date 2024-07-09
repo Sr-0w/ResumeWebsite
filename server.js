@@ -44,6 +44,31 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+// Middleware to serve forbidden.html for unknown routes
+app.use((req, res, next) => {
+    const allowedPaths = [
+        '/',
+        '/fujitsu-server',
+        '/homelab',
+        '/3D-printer',
+        '/ESP32',
+        '/this-website',
+        '/github-projects',
+        '/view-resume',
+        '/download-resume'
+    ];
+
+    const allowedExtensions = ['.js', '.css', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.otf', '.eot'];
+
+    const isAllowedPath = allowedPaths.includes(req.path);
+    const isAllowedExtension = allowedExtensions.some(ext => req.path.endsWith(ext));
+
+    if (!isAllowedPath && !isAllowedExtension) {
+        res.status(403).sendFile(path.join(__dirname, 'forbidden.html'));
+    } else {
+        next();
+    }
+});
 
 
 // Middleware to deny access to sensitive files
