@@ -75,6 +75,10 @@ app.use(denySensitiveFiles);
 app.use(express.static(__dirname));
 
 //Articles
+app.get('/resume', (req, res) => {
+    res.sendFile(path.join(__dirname, 'resume.pdf'));
+});
+
 app.get('/fujitsu-server', (req, res) => {
     res.sendFile(path.join(__dirname, 'fujitsu-server.html'));
 });
