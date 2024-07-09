@@ -105,7 +105,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/view-resume', (req, res) => {
-    const filePath = path.join(__dirname, 'resume.pdf');
+    const filePath = path.join(__dirname, 'resume.html');
     console.log(`${new Date().toISOString()} - PDF viewed by ${req.realIp}`);
 
     async function getIpLocation(ip) {

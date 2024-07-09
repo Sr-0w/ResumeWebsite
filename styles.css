@@ -1003,3 +1003,20 @@ nav{
 .hamburger-menu hr{
     opacity: 10%;
 }
+
+.pdf-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.view-resume-button-container {
+    width: 50%;
+    margin: auto;
+    padding: 2rem;
+}
