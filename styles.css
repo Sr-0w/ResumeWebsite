@@ -1024,3 +1024,33 @@ iframe {
     padding: 2rem;
 }
 
+.code-title {
+    background-color: #272822; 
+    color: #f8f8f2; 
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; 
+    padding: 10px; 
+    border-radius: 1rem;
+    border-bottom: none; 
+}
+
+.show-button {
+    background-color: #272822; /* Match the background color of Okaidia theme */
+    color: #f8f8f2; /* Match the text color of Okaidia theme */
+    border: 1px solid #f8f8f2; /* Match the border color of Okaidia theme */
+    border-radius: 3px; /* Slightly round the corners */
+    padding: 5px 10px; /* Add some padding */
+    margin-right: 5px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Match the font */
+    float: right;
+}
+
+.show-button:hover {
+    background-color: #383830; /* Slightly lighter background on hover */
+}
+
+.code-block {
+    display: none; /* Hide the code block by default */
+    margin: none;
+    padding: none;
+}
