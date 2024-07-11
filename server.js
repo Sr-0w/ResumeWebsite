@@ -138,10 +138,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/view-resume', (req, res) => {
-    res.sendFile(path.join(__dirname, 'resume.html'));
-});
-
 
 
 app.get('/view-resume', (req, res) => {
