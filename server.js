@@ -66,7 +66,7 @@ app.use((req, res, next) => {
     ];
 
     // Allow static assets
-    const staticFileExtensions = ['.css', '.webp', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.otf', '.eot', '.pdf'];
+    const staticFileExtensions = ['.css', '.webp', '.js', '.png', '.jpg', '.jpeg', '.gif', '.svg', '.woff', '.woff2', '.ttf', '.otf', '.eot', '.ico', '.pdf'];
     const isStaticAsset = staticFileExtensions.some(ext => req.path.endsWith(ext));
 
     if (!allowedPaths.includes(req.path) && !isStaticAsset) {
