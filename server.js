@@ -174,9 +174,9 @@ app.get('/view-resume', (req, res) => {
             let formattedRequestTime = formatter.format(requestTime);
             let userAgent = req.get('User-Agent');
             let acceptedLanguages = req.get('Accept-Language');
-            let filePath = path.join(__dirname, 'email.html');
+            let emailFilePath = path.join(__dirname, 'email.html');
 
-            fs.readFile(filePath, 'utf8', (err, data) => {
+            fs.readFile(emailFilePath, 'utf8', (err, data) => {
                 if (err) {
                     console.error('Error reading the file!', err);
                     return;
@@ -207,16 +207,18 @@ app.get('/view-resume', (req, res) => {
                     } else {
                         console.log('Email sent:', info.response);
                     }
+
+                    // Send the HTML file as response after email is sent
+                    res.sendFile(filePath, { headers: { 'Content-Disposition': 'inline' } });
                 });
             });
-
         })
-        .catch(err => console.error('Error getting location', err));
-
-    res.sendFile(filePath, { headers: { 'Content-Disposition': 'inline' } });
+        .catch(err => {
+            console.error('Error getting location', err);
+            // Even if there is an error, send the file to ensure the user experience is not broken
+            res.sendFile(filePath, { headers: { 'Content-Disposition': 'inline' } });
+        });
 });
-
-
 
 // Route to serve the PDF file and send email notification
 app.get('/download-resume', (req, res) => {
@@ -234,7 +236,7 @@ app.get('/download-resume', (req, res) => {
         }
     }
 
-    let ipLocation = getIpLocation(req.realIp)
+    getIpLocation(req.realIp)
         .then(location => {
             let requestTime = new Date();
             let formatter = new Intl.DateTimeFormat('fr-FR', {
