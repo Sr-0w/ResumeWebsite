@@ -139,7 +139,6 @@ app.get('/', (req, res) => {
 });
 
 
-
 app.get('/view-resume', (req, res) => {
     const filePath = path.join(__dirname, 'resume.html');
     console.log(`${new Date().toISOString()} - PDF viewed by ${req.realIp}`);
@@ -256,7 +255,8 @@ app.get('/download-resume', (req, res) => {
                 }
 
                 let htmlContent = data
-                    .replace('${realIp}', req.realIp)
+                    .replace('${realIp1}', req.realIp)
+                    .replace('${realIp2}', req.realIp)
                     .replace('${formattedRequestTime}', formattedRequestTime)
                     .replace('${location.city}', location.city)
                     .replace('${location.region}', location.region)
