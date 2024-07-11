@@ -62,7 +62,8 @@ app.use((req, res, next) => {
         '/github-projects',
         '/view-resume',
         '/download-resume',
-        '/resume.pdf'  // Allow access to resume.pdf
+        '/resume.pdf'
+        '/privacy-policy'  // Allow access to resume.pdf
     ];
 
     // Allow static assets
