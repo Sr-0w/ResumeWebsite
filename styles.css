@@ -491,7 +491,7 @@ h6 {
     }
 }
 
-@media only screen and (max-width : 550px) {
+@media only screen and (max-width : 950px) {
     .article-header {
         margin-top: 80px;
     }
