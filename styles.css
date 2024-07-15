@@ -1053,3 +1053,7 @@ iframe {
     margin: none;
     padding: none;
 }
+
+.article-content a:link {
+    color: white;
+}
