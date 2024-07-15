@@ -7,22 +7,6 @@ html, body {
     scroll-behavior: smooth;
 }
 
-a:link {
-    color: white; /* Normal state */
-}
-
-a:visited {
-    color: white; /* Visited state */
-}
-
-a:hover {
-    color: #d3d3d3; /* Hover state */
-}
-
-a:active {
-    color: white; /* Active state */
-}
-
 body {
 	font-family: Montserrat, sans-serif;
     background-color: #141414;
@@ -1068,4 +1052,20 @@ iframe {
     display: none; /* Hide the code block by default */
     margin: none;
     padding: none;
+}
+
+a:link {
+    color: white; /* Normal state */
+}
+
+a:visited {
+    color: white; /* Visited state */
+}
+
+a:hover {
+    color: #d3d3d3; /* Hover state */
+}
+
+a:active {
+    color: white; /* Active state */
 }
