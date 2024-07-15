@@ -1082,20 +1082,24 @@ iframe {
 
 .footer a:link {
     color: white; /* Normal state */
+    text-decoration: none;
     font-weight: bold;
 }
 
 .footer a:visited {
     color: white; /* Visited state */
+    text-decoration: none;
     font-weight: bold;
 }
 
 .footer a:hover {
     color: #d3d3d3; /* Hover state */
+    text-decoration: none;
     font-weight: bold;
 }
 
 .footer a:active {
     color: white; /* Active state */
+    text-decoration: none;
     font-weight: bold;
 }
