@@ -1054,6 +1054,18 @@ iframe {
     padding: none;
 }
 
-.article-content a:link {
-    color: white;
+.article-content a:link {
+    color: white; /* Normal state */
+}
+
+.article-content a:visited {
+    color: white; /* Visited state */
+}
+
+.article-content a:hover {
+    color: #d3d3d3; /* Hover state */
+}
+
+.article-content a:active {
+    color: white; /* Active state */
 }
