@@ -460,7 +460,7 @@ h6 {
 }
 
 .article-content {
-    max-width: var(--max-container-width);
+    max-width: 800px;
     margin: auto;
     padding: 20px;
     font-size: var(--font-size-text);
