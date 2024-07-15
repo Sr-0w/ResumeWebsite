@@ -491,6 +491,12 @@ h6 {
     }
 }
 
+@media only screen and (max-width : 550px) {
+    .article-header {
+        margin-top: 80px;
+    }
+}
+
 .article-image {
 	position: relative;
     width: 100%; /* Ensures the container stretches to the width of its parent */
