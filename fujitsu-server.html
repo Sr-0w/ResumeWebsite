@@ -44,27 +44,41 @@
         <div class="article-image full-width aspect-ratio aspect-16-9">
             <img src="images/server-setup.jpg" alt="Server Setup">
         </div>
-        <p>Recently, I acquired an old Fujitsu TX2540 M1 server from a local surplus store. This server, once deemed outdated, has been given a new purpose in my home lab setup. Here's a journey through the transformation and learning curve I experienced with this project.</p>
-        
+        <p>In January 2023, I acquired an old Fujitsu TX2540 M1 server from eBay. This server, once deemed outdated, has found a new purpose in my home lab setup. My goal was to leverage this affordable piece of hardware to expand my practical knowledge and skills in server management, hardware upgrades, and various operating systems. Through this project, I aimed to not only revive an old server but also transform it into a powerful and versatile machine capable of supporting a wide range of IT experiments. Here’s a detailed journey through its transformation and the invaluable learning experiences it brought along.</p>
+    
         <div class="content-with-image">
             <div class="article-image side-by-side aspect-ratio aspect-1-1">
                 <img src="images/upgrades.jpg" alt="Hardware Upgrades">
             </div>
             <div class="text-next-to-image">
                 <h2>Project Initiation</h2>
-                <p>The Fujitsu TX2540 M1 was in a decent state, but it needed some upgrades to be useful for my needs. I started by increasing the RAM and replacing the old hard drives with SSDs for better performance.</p>
+                <p>I wanted to get a server to experiment with server hardware and enhance my existing hardware knowledge. The Fujitsu TX2540 M1 was in decent condition but required significant upgrades to meet my technical needs. I started by upgrading the RAM from 16GB to 64GB and replacing the single E5-2420 V2 CPU with dual E5-2470 V2 CPUs. The original single E5-2420 V2 CPU had 6 cores and a base frequency of 2.2 GHz, while the new dual E5-2470 V2 CPUs provide a total of 20 cores (10 cores each) and a base frequency of 2.4 GHz, significantly boosting its performance. Additionally, I purchased a specific stock CPU cooler to support the new processors. These enhancements transformed the server into a high-performance machine suitable for a variety of IT experiments.</p>
             </div>
         </div>
-
-        <h2>Challenges Faced</h2>
-        <p>One of the main challenges was updating the BIOS, which was necessary to support newer operating systems and hardware upgrades. Another issue was configuring the RAID setup, which was initially confusing but provided a great learning opportunity.</p>
-        
+    
+        <h2>Technical Challenges and Solutions</h2>
+        <p>The main focus was ensuring compatibility and achieving optimal performance with the new hardware components. Detailed research into hardware specifications and compatibility was crucial. The physical installation of the CPUs and RAM was executed with precision, ensuring all components were properly seated and thermal paste was correctly applied to maintain optimal temperatures. I also updated the server's BIOS to the latest version to ensure full compatibility with the new CPUs.</p>
+    
+        <h2>Exploring Operating Systems</h2>
+        <p>A key part of the project involved testing various operating systems to determine the most suitable environment for my needs. I deployed and configured:</p>
+        <ul>
+            <li><strong>Windows Server 2022</strong>: Evaluated for its enterprise features and integration with other Microsoft services.</li>
+            <li><strong>ESXi</strong>: Tested for its virtualization capabilities.</li>
+            <li><strong>Proxmox</strong>: Assessed for its open-source virtualization platform.</li>
+            <li><strong>Ubuntu Server</strong>: Examined for its flexibility and community support.</li>
+            <li><strong>FreeBSD</strong>: Considered for its robust security features.</li>
+            <li><strong>OpenBSD</strong>: Tested for its emphasis on security.</li>
+            <li><strong>RHEL Community Edition</strong>: Evaluated for its enterprise-grade features.</li>
+        </ul>
+        <p>Each operating system was evaluated for its features, performance, and compatibility with the server hardware, providing a comprehensive understanding of their capabilities and use cases.</p>
+    
         <h2>Learning and Outcomes</h2>
-        <p>This project not only enhanced my technical skills but also taught me about server maintenance, network setup, and resource optimization. It now serves as a personal cloud storage and media server, demonstrating that older technology can still be incredibly useful with the right tweaks.</p>
-        
+        <p>This project significantly enhanced my technical skills, particularly in server maintenance, network configuration, and resource optimization. The hands-on experience with multiple operating systems provided valuable insights into their unique strengths and functionalities. Through this project, I encountered and resolved various technical challenges, such as driver incompatibilities and network configuration issues, which further honed my troubleshooting skills. The server now serves as a robust platform for ongoing experiments, facilitating continuous learning and practical application of IT concepts.</p>
+    
         <h2>Conclusion</h2>
-        <p>The 'Old Server Repurposed' project was a rewarding experience that allowed me to deepen my understanding of network engineering and server management. It's a testament to the idea that old technology can find new life with a bit of creativity and effort.</p>
+        <p>Repurposing the old Fujitsu TX2540 M1 server has proven to be a highly rewarding technical endeavor. Through strategic upgrades and meticulous planning, I successfully revitalized outdated technology to meet modern needs. This project not only solidified my technical expertise but also highlighted the importance of adaptability and continuous learning in the ever-evolving field of IT. The experience gained from this project underscores the value of hands-on experimentation and its role in developing practical, real-world IT skills.</p>
     </div>
+    
 
     <div class="footer">
         <p class="visible">© 2024 by Robin Snyders. All rights reserved.</p>
