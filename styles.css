@@ -1056,16 +1056,20 @@ iframe {
 
 .article-content a:link {
     color: white; /* Normal state */
+    font-weight: bold;
 }
 
 .article-content a:visited {
     color: white; /* Visited state */
+    font-weight: bold;
 }
 
 .article-content a:hover {
     color: #d3d3d3; /* Hover state */
+    font-weight: bold;
 }
 
 .article-content a:active {
     color: white; /* Active state */
+    font-weight: bold;
 }
